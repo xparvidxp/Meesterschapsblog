@@ -1,0 +1,250 @@
+* {
+    scroll-snap-type: y proximity;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+
+    --bg: black;
+    --text: white;
+    --bg-grey: rgb(12, 12, 12);
+    --accent: white;
+    --hover: rgb(194, 194, 194);
+
+    font-family: "Revx Neue", sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+ul {
+    position: relative;
+    z-index: 2;
+
+    margin: 0;
+    padding: 5vh 0 70vh 0;
+
+    list-style: none;
+    background-color: var(--bg-grey);
+}
+
+ul::before {
+    content: "";
+    position: absolute;
+
+    width: 10px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: var(--accent);
+}
+
+li {
+    padding: .5rem;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+label {
+    cursor: pointer;
+
+    display: block;
+    position: relative;
+
+    width: 40vw;
+    padding: 1rem;
+
+    font-size: clamp(1.5rem, 2vw, 3.5rem);
+
+
+&&::after {
+    content: "";
+    position: absolute;
+
+    left: 1rem;
+    bottom: 0;
+
+    width: 15%;
+    height: 2px;
+
+    background-color: var(--text);
+    transition: width .3s ease;
+}
+
+&&:hover::after,
+input[type="radio"]:checked + label::after {
+    width: 25%;
+}
+
+&&:hover {
+    color: var(--hover);
+}
+}
+
+input[type="radio"] {
+    display:none;
+}
+
+input[type="radio"]:checked + label + .content {
+    display: block;
+}
+
+input[type="radio"]:checked + label {
+    color: var(--hover);
+}
+
+.content {
+    display: none;
+
+    position: absolute;
+
+    left: 20vw;
+    top: 5vw;
+
+    width: 35vw;
+}
+
+.hero {
+    display: flex;
+
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    overflow: hidden;
+
+    height: 90vh;
+    padding-bottom: 10vh;
+
+    background: var(--bg);
+}
+
+.textLeft,
+.textRight {
+    position: absolute;
+
+    font-size: clamp(1.5rem, 2.3vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+
+    overflow: hidden;
+    white-space: nowrap;
+
+    animation: typing 1.3s steps(32, start);
+}
+
+.textLeft {
+    left: 15%;
+    top: 30%;
+}
+
+.textRight {
+    right: 16%;
+    top: 40%;
+
+    animation-fill-mode: backwards;
+    animation-delay: 1.3s;
+}
+
+.heroText {
+    display: block;
+}
+
+.scrollIndicator {
+    opacity: 0;
+    padding: 1.5rem;
+
+    writing-mode: sideways-lr;
+    pointer-events: none;
+
+    animation: fadeIn 1s ease-out 3s forwards;
+}
+
+.scrollText {
+    --line-height: 5vh;
+
+    display: block;
+    position: relative;
+}
+
+.scrollText::before {
+    content: "";
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+
+    left: 50%;
+    top: calc(100% + 20px + var(--line-height) + 8px);
+
+    background: var(--accent);
+    transform: translateX(-50%);
+
+    animation: Blink 1.5s ease-in-out 4s infinite;
+}
+
+.scrollText::after {
+    content: "";
+    position: absolute;
+
+    width: 1px;
+    height: var(--line-height);
+
+    left: 50%;
+    top: calc(100% + 20px);
+
+    background: white;
+    transform: translateX(-50%);
+}
+
+/* ANIMATIONS */
+
+@keyframes typing {
+    from {
+        clip-path: inset(0 100% 0 0);
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes Blink {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes openText {
+    from {
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* FONT */
+
+@font-face {
+    font-family: "Revx Neue";
+    src: url("/Assets/Revx Neue Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
