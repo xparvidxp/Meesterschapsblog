@@ -97,13 +97,22 @@ input[type="radio"]:checked + label {
 
 .content {
     display: none;
-
     position: absolute;
-
     left: 20vw;
     top: 5vw;
-
     width: 35vw;
+
+&&::before {
+    content: "";
+    position: absolute;
+
+    left: -10px;
+    top: 0;
+    bottom: 0;
+
+    width: 2px;
+    background-color: white;
+}
 }
 
 .hero {
