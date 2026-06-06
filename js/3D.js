@@ -1,91 +1,114 @@
-// Import van Three.js en helpers (via CDN)
 import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
-import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
-import { RGBELoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/RGBELoader.js";
 
-// Maak een nieuwe scene
 const scene = new THREE.Scene();
 
 // Camera
+
 const camera = new THREE.PerspectiveCamera(
-  75, // field of view (hoe "wijd" je kijkt)
-  window.innerWidth / window.innerHeight, // aspect ratio
-  0.1, // dichtbij clippen
-  1000 // ver clippen
+  75,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000
 );
 
-// Variabelen voor object en controls
-let object;
-let controls;
+camera.position.set(0, 0, 25);
 
-// Naam van de map waarin je model zit
-let objToRender = 'sateliet';
+// Renderer
 
-// Loader voor .gltf en .glb bestanden
-const loader = new GLTFLoader();
+const renderer = new THREE.WebGLRenderer({
+  alpha: true,
+  antialias: true
+});
 
-// Laad het 3D model (.glb bestand)
-loader.load(
-  `./models/${objToRender}/Satteliet_v8.glb`, // pad naar je model
-
-  function (gltf) {
-    // Wordt uitgevoerd als het model geladen is
-
-    object = gltf.scene; // pak de scene uit het bestand
-    scene.add(object);   // voeg het model toe aan je scene
-
-    // Pas schaal aan (handig als model te groot/klein is)
-    object.scale.set(5, 5, 5);
-
-    // Eventueel positie aanpassen
-    object.position.set(0, -5, 0);
-  },
-
-  function (error) {
-    // Error handling
-    console.error('Fout bij laden van model:', error);
-  }
-);
-
-// Renderer (dit tekent alles op het scherm)
-const renderer = new THREE.WebGLRenderer({ alpha: true });
-
-// Stel grootte in (fullscreen)
 renderer.setSize(window.innerWidth, window.innerHeight);
 
-// Voeg canvas toe aan HTML (div met id "container3D")
-document.getElementById("container3D").appendChild(renderer.domElement);
+document
+  .getElementById("container3D")
+  .appendChild(renderer.domElement);
 
-// Zet camera iets naar achter zodat je het model ziet
-camera.position.z = 25;
+// Lighting
 
-// Licht van boven (Directional light)
-const topLight = new THREE.DirectionalLight(0xffffff, 1);
+const topLight = new THREE.DirectionalLight(0xffffff, 3);
 topLight.position.set(500, 500, 500);
 scene.add(topLight);
 
-// Ambient light (algemene verlichting)
-const ambientLight = new THREE.AmbientLight(0x333333, 20);
+const ambientLight = new THREE.AmbientLight(0xffffff, 3);
 scene.add(ambientLight);
 
-// Controls om met muis te roteren/zoomen
-controls = new OrbitControls(camera, renderer.domElement);
+// 3D Model
 
-// Animatie loop (wordt elke frame uitgevoerd)
+let object;
+
+const loader = new GLTFLoader();
+
+loader.load(
+  "assets/satelite.glb",
+
+  (gltf) => {
+    object = gltf.scene;
+    scene.add(object);
+
+    // Schaal
+    object.scale.set(6, 6, 6);
+
+    // Model centreren
+    const box = new THREE.Box3().setFromObject(object);
+    const center = box.getCenter(new THREE.Vector3());
+
+    object.position.sub(center);
+
+    // Beginoriëntatie
+    object.rotation.x = 0.2;
+    object.rotation.y = -0.3;
+    object.rotation.z = 0.1;
+
+    camera.lookAt(0, 0, 0);
+  },
+
+  undefined,
+
+  (error) => {
+    console.error("Fout bij laden:", error);
+  }
+);
+
+// Animation
+
 function animate() {
   requestAnimationFrame(animate);
 
-  // Render de scene vanuit de camera
+  const t = Date.now() * 0.0005;
+
+  if (object) {
+    // Basisoriëntatie: voorkant mooi naar camera
+    object.rotation.x = 0.15 + Math.sin(t * 1.2) * 0.04;
+    object.rotation.y = -0.25 + Math.sin(t * 0.8) * 0.06;
+    object.rotation.z = 0.08 + Math.sin(t * 1.5) * 0.03;
+
+    // Subtiel zweven
+    object.position.y = -6 + Math.sin(t * 2) * 0.3;
+    object.position.x = 1 + Math.cos(t) * 0.1;
+  }
+
   renderer.render(scene, camera);
 }
 
-// Zorg dat alles schaalt bij resize van het scherm
-window.addEventListener("resize", function () {
+animate();
+
+// Resize
+
+window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
+
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  renderer.setSize(
+    window.innerWidth,
+    window.innerHeight
+  );
 });
 
-// Start de animatie
-animate();
+// Bronnen
+// https://chatgpt.com/c/6a249690-5108-83eb-b4d5-b941f6e0142e
+// https://threejs.org/docs/#Object3D.rotation

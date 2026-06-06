@@ -9,11 +9,13 @@ body {
     --bg: black;
     --text: white;
     --bg-grey: rgb(12, 12, 12);
-    --accent: white;
+    --accent: rgb(205, 19, 19);
     --hover: rgb(194, 194, 194);
 
+    --delay: 2s;
+
     font-family: "Revx Neue", sans-serif;
-    background-color: var(--bg);
+    /* background-color: var(--bg); */
     color: var(--text);
 }
 
@@ -141,7 +143,7 @@ input[type="radio"]:checked + label {
     overflow: hidden;
     white-space: nowrap;
 
-    animation: typing 1.3s steps(32, start);
+    animation: typing var(--delay) steps(32, start);
 }
 
 .textLeft {
@@ -154,11 +156,12 @@ input[type="radio"]:checked + label {
     top: 40%;
 
     animation-fill-mode: backwards;
-    animation-delay: 1.3s;
+    animation-delay: var(--delay);
 }
 
 .heroText {
     display: block;
+    z-index: 1;
 }
 
 .scrollIndicator {
@@ -217,6 +220,10 @@ input[type="radio"]:checked + label {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: -1;
+
+    animation: Blur 1.5s ease-in 2s;
+    animation-fill-mode: forwards;
 }
 
 /* ANIMATIONS */
@@ -259,6 +266,16 @@ input[type="radio"]:checked + label {
     }
 }
 
+@keyframes Blur {
+    from {
+        filter: blur(0);
+    }
+
+    to {
+        filter: blur(8px);
+    }
+}
+
 /* FONT */
 
 @font-face {
@@ -267,3 +284,10 @@ input[type="radio"]:checked + label {
     font-weight: normal;
     font-style: normal;
 }
+
+/* Bronnen
+https://chatgpt.com/c/6a249690-5108-83eb-b4d5-b941f6e0142e
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/filter-function/blur
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/animation
+https://stackoverflow.com/questions/12991164/maintaining-the-final-state-at-end-of-a-css-animation
+*/
