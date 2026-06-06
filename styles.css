@@ -9,7 +9,7 @@ body {
     --bg: black;
     --text: white;
     --bg-grey: rgb(12, 12, 12);
-    --accent: rgb(205, 19, 19);
+    --accent: rgb(205, 93, 19);
     --hover: rgb(194, 194, 194);
 
     --delay: 2s;
@@ -212,6 +212,30 @@ input[type="radio"]:checked + label {
     transform: translateX(-50%);
 }
 
+.star-wrapper {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -2;
+}
+
+.star {
+    position: absolute;
+    top: var(--star-top);
+    left: var(--star-left);
+    width: var(--star-size);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: white;
+
+    filter:
+      drop-shadow(0 0 calc(var(--star-size) * 0.5) var(--star-color))
+      drop-shadow(0 0 calc(var(--star-size) * 2) white);
+
+    mix-blend-mode: hard-light;
+}
+
 /* 3D */
 
 #container3D canvas {
@@ -290,4 +314,5 @@ https://chatgpt.com/c/6a249690-5108-83eb-b4d5-b941f6e0142e
 https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/filter-function/blur
 https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/animation
 https://stackoverflow.com/questions/12991164/maintaining-the-final-state-at-end-of-a-css-animation
+Sterren achtergrond uit Hackathon project
 */
