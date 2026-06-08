@@ -1,8 +1,5 @@
-* {
-    scroll-snap-type: y proximity;
-}
-
 body {
+    background-color: var(--bg);
     padding: 0;
     margin: 0;
 
@@ -19,114 +16,66 @@ body {
     color: var(--text);
 }
 
-ul {
+section {
+    min-height: 100vh;
     position: relative;
     z-index: 2;
-
-    margin: 0;
-    padding: 5vh 0 70vh 0;
-
-    list-style: none;
-    background-color: var(--bg-grey);
 }
 
-ul::before {
-    content: "";
-    position: absolute;
-
-    width: 10px;
-    top: 0;
-    bottom: 0;
-    left: 0;
-
-    background-color: var(--accent);
+.left {
+    max-width: 60ch;
+    margin-right: auto;
+    text-align: left;
+    margin-left: 15vw;
 }
 
-li {
-    padding: .5rem;
-
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
+.right {
+    max-width: 60ch;
+    margin-left: auto;
+    margin-right: 15vw;
+    text-align: left;
 }
 
-label {
-    cursor: pointer;
-
-    display: block;
+.line {
     position: relative;
-
-    width: 40vw;
-    padding: 1rem;
-
-    font-size: clamp(1.5rem, 2vw, 3.5rem);
-
-
-&&::after {
-    content: "";
-    position: absolute;
-
-    left: 1rem;
-    bottom: 0;
-
-    width: 15%;
-    height: 2px;
-
-    background-color: var(--text);
-    transition: width .3s ease;
-}
-
-&&:hover::after,
-input[type="radio"]:checked + label::after {
-    width: 25%;
-}
-
-&&:hover {
-    color: var(--hover);
-}
-}
-
-input[type="radio"] {
-    display:none;
-}
-
-input[type="radio"]:checked + label + .content {
-    display: block;
-}
-
-input[type="radio"]:checked + label {
-    color: var(--hover);
-}
-
-.content {
-    display: none;
-    position: absolute;
-    left: 20vw;
-    top: 5vw;
-    width: 35vw;
 
 &&::before {
     content: "";
     position: absolute;
+    transform: translate(-10px, 0);
+    width: 1px;
+    height: 100%;
+    background-color: var(--text);
+}
+}
 
-    left: -10px;
-    top: 0;
-    bottom: 0;
+.appear {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
 
-    width: 2px;
-    background-color: white;
+.button {
+    text-decoration: none;
+    display: inline-block;
+    width: fit-content;
+    border: 1px dashed var(--text);
+    color: var(--text);
+    padding: .4vw 1vw .4vw 1vw;
+
+&&::after {
+    content: "Bekijk project";
 }
 }
 
 .hero {
     display: flex;
 
-    position: sticky;
+    position: relative;
     top: 0;
     z-index: 1;
     overflow: hidden;
-
-    height: 90vh;
-    padding-bottom: 10vh;
+    padding-bottom: 15vh;
 
     background: var(--bg);
 }
@@ -167,6 +116,7 @@ input[type="radio"]:checked + label {
 .scrollIndicator {
     opacity: 0;
     padding: 1.5rem;
+    transform:translateY(-6vw);
 
     writing-mode: sideways-lr;
     pointer-events: none;
@@ -195,7 +145,7 @@ input[type="radio"]:checked + label {
     background: var(--accent);
     transform: translateX(-50%);
 
-    animation: Blink 1.5s ease-in-out 4s infinite;
+    animation: blink 1.5s ease-in-out 4s infinite;
 }
 
 .scrollText::after {
@@ -238,19 +188,33 @@ input[type="radio"]:checked + label {
 
 /* 3D */
 
+#container3D {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
 #container3D canvas {
     width: 100vw !important;
     height: 100vh !important;
-    position: absolute;
-    top: 0;
-    left: 0;
     z-index: -1;
 
-    animation: Blur 1.5s ease-in 2s;
+    animation: blur 1.5s ease-in 2s;
     animation-fill-mode: forwards;
 }
 
 /* ANIMATIONS */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
 
 @keyframes typing {
     from {
@@ -268,7 +232,7 @@ input[type="radio"]:checked + label {
     }
 }
 
-@keyframes Blink {
+@keyframes blink {
     0%, 100% {
         opacity: 1;
     }
@@ -290,13 +254,13 @@ input[type="radio"]:checked + label {
     }
 }
 
-@keyframes Blur {
+@keyframes blur {
     from {
         filter: blur(0);
     }
 
     to {
-        filter: blur(8px);
+        filter: blur(2px);
     }
 }
 
@@ -314,5 +278,7 @@ https://chatgpt.com/c/6a249690-5108-83eb-b4d5-b941f6e0142e
 https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/filter-function/blur
 https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/animation
 https://stackoverflow.com/questions/12991164/maintaining-the-final-state-at-end-of-a-css-animation
+https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Flexible_box_layout/Aligning_items
+https://chatgpt.com/c/6a271dbf-4ed0-83ed-afcd-60a49b00522e
 Sterren achtergrond uit Hackathon project
 */
