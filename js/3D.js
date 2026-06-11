@@ -192,3 +192,6 @@ window.addEventListener("resize", () => {
 
   updateModelScale();
 });
+
+// Bronnen
+// http://threejs.org/docs/

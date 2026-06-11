@@ -1,25 +1,30 @@
 /* ALGEMENE / HERO STYLING */
 
 body {
-    background-color: var(--bg1);
     padding: 0;
     margin: 0;
 
-    --bg1: black;
-    --text1: white;
-    --accent1: rgb(205, 93, 19);
-
+    --bg: black;
+    --text: white;
+    --accent: rgb(205, 93, 19);
     --delay: 2s;
 
     font-family: "Revx Neue", sans-serif;
-    /* background-color: var(--bg1); */
-    color: var(--text1);
+    color: var(--text);
+    background-color: var(--bg);
+
+    transition: background-color .7s linear;
 }
 
 section {
     min-height: 100vh;
     position: relative;
     z-index: 2;
+}
+
+li {
+    list-style: none;
+    margin: .5vw;
 }
 
 .button {
@@ -58,7 +63,7 @@ section {
     overflow: hidden;
     padding-bottom: 15vh;
 
-    background: var(--bg1);
+    background: var(--bg);
 }
 
 .heroText {
@@ -129,7 +134,7 @@ section {
     left: 50%;
     top: calc(100% + 20px + var(--line-height) + 8px);
 
-    background: var(--accent1);
+    background: var(--accent);
     transform: translateX(-50%);
 
     animation: blink 1.5s ease-in-out 4s infinite;
@@ -149,22 +154,20 @@ section {
     transform: translateX(-50%);
 }
 
-/* HACKATHON STYLING */
-
-.hackathonBtn {
-    border: 1px dashed var(--text1);
-    color: var(--text1);
+.button {
+    border: 1px dashed var(--text);
+    color: var(--text);
 
 &&:hover {
-    background-color: var(--text1);
-    color: var(--bg1);
+    background-color: var(--text);
+    color: var(--bg);
     transform: translateY(-3px);
     transition-duration: .3s;
 
 }    
 }
 
-.hackathonContent {
+.line {
     position: relative;
 
 &&::before {
@@ -173,7 +176,7 @@ section {
     transform: translate(-10px, 0);
     width: 1px;
     height: 100%;
-    background-color: var(--text1);
+    background-color: var(--text);
 }
 }
 
@@ -219,86 +222,11 @@ section {
     animation-fill-mode: forwards;
 }
 
+/* HACKATHON STYLING */
+
 /* SPRINT0 */
 
-.sprintBody {
-    opacity: 0;
-
-    --bg2: #1e1e1e;
-    --text2: white;
-    --accent2: darkgrey;
-
-    background:
-    linear-gradient(
-        transparent 0%,
-        var(--bg2) 15% 65%,
-        white 100%
-    );
-
-    padding-bottom: 50vh;
-
-    animation: appearDisappear linear;
-    animation-timeline: view();
-    animation-range: entry 20% exit 90%;
-}
-
-.sprintH2 {
-    background-color: darkgrey;
-    border-radius: 50px;
-    width: fit-content;
-    padding: .3vw 1.5vw .3vw 1.5vw;
-    color: white;
-    font-family: sans-serif;
-    font-weight: 300;
-}
-
-.sprintContent {
-    background-color: darkgrey;
-    border-radius: 40px;
-    width: fit-content;
-    padding: 1vw .5vw 1vw 1.2vw;
-    color: white;
-    font-family: sans-serif;
-}
-
-.sprintBtn {
-    background-color: var(--text2);
-    color: var(--bg2);
-    border-radius: 50px;
-    font-family: sans-serif;
-
-&&:hover {
-    background-color: var(--accent2);
-    color: var(--text2);
-    transform: translateY(-3px);
-    transition-duration: .3s;
-    
-}    
-}
-
 /* API */
-
-.apiBody {
-    margin-top: -50vh;
-    opacity: 0;
-
-    --bg2: #1e1e1e;
-    --text2: white;
-    --accent2: darkgrey;
-
-    background:
-    linear-gradient(
-        transparent 0%,
-        var(--text2) 15% 65%,
-        transparent 100%
-    );
-
-    animation: appearDisappear linear;
-    animation-timeline: view();
-    animation-range: entry 20% exit 90%;
-
-    color: var(--bg2);
-}
 
 /* BROWSER TECH */
 

@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" line="width=device-width, initial-scale=1.0">
     <title>Meesterschaps blog</title>
     <link rel="stylesheet" href="styles.css"></link>
 </head>
@@ -10,7 +10,11 @@
     <header>
     </header>
     <main>
-        <section class="hero">
+        <section 
+        class="hero" 
+        data-type="content" 
+        data-id="meesterschap"
+        >
             <script type="module" src="js/3D.js"></script>
             <div class="textLeft">
                 <p class="heroText">Minor Web Development & Design</p>
@@ -125,10 +129,13 @@
                 <div class="star"></div>
             </div>
         </section>
-        <section>
+        <section 
+            data-type="content"
+            data-id="hackathon"
+        >
             <div class="appear left">
-                <h2 class="hackathonContent">Hackathon</h2>
-                <p class="hackathonContent">
+                <h2 class="line">Hackathon</h2>
+                <p class="line">
                     De Hackathon was een samenwerking met SRON, een ruimtevaartbedrijf door studenten. Wij hebben de website ontwikkeld in korte tijd.
                     Mijn inbreng was het 3D modelleren van de satteliet in Blender die gebruikt werd om de verschillende onderdelen van de satteliet weer te geven.
                     Verder heb ik de sterrenhemel in de achtergrond gemaakt en ervoor gezorgd dat deze beweegt wanneer je muis beweegt (parralax)
@@ -138,16 +145,19 @@
             </div>
         </section>
 
-        <!-- <section>
+        <!-- <section data="content">
             <div>
                     Weekly nerds. Hier komt de tekst
             </div>
         </section> -->
 
-        <section class="sprintBody">
+        <section 
+            data-type="content"
+            data-id="sprint0"
+        >
             <div class="appear left">
-                <h2 class="sprintH2">Sprint 0</h2>
-                <p class="sprintContent">
+                <h2 class="line">Sprint 0</h2>
+                <p class="line">
                     Tijdens Sprint 0 heb ik gewerkt aan een website waarop ik mezelf voorstel. Het project begon heel ambitieus met een idee van een 3D geanimeerd badeendje,
                     waarop gebruikers konden klikken om meer informatie over mij te krijgen. Dit was technisch nog te hoog gegrepen.
                     Daarom heb ik mijn aanpak aangepast en ben ik eerst gaan focussen op de minimale eisen van de opdracht.
@@ -158,25 +168,31 @@
                 </p>
                 <a class="sprintBtn button" href="https://xparvidxp.github.io/Sprint-0_webdev/" target="_blank" rel="noopener"></a>
             </div>
-            <div class="sprintWrapper appear right">
-                <h2 class="sprintH2">Leerdoelen begin minor</h2>
-                <p class="sprintContent">
-                Leerdoel 1:
-                HTML Elementen beter kennen en begrijpen, zodat ik ze op de juiste momenten kan toepassen.
-                <br><br>
-                Leerdoel 2:
-                Javascript basis begrijpen en zelf scripts kunnen schrijven om de website interactief te maken.
-                <br><br>
-                Leerdoel 3:
-                3D assets kunnen gebruiken en kunnen animeren op websites.
-                </p>
-            </div>
+            <div class="appear right">
+                <h2 class="line">Leerdoelen begin minor</h2>
+                <ul>
+                    <li class="line">
+                    Leerdoel 1:
+                    HTML Elementen beter kennen en begrijpen, zodat ik ze op de juiste momenten kan toepassen.
+                    </li>
+                    <li class="line">
+                    Leerdoel 2:
+                    Javascript basis begrijpen en zelf scripts kunnen schrijven om de website interactief te maken.
+                    </li>
+                    <li class="line">
+                    Leerdoel 3:
+                    3D assets kunnen gebruiken en kunnen animeren op websites.
+                    </li>
+                </ul>
         </section>
 
-        <section class="apiBody">
+        <section 
+            data-type="content"
+            data-id="api"
+        >
             <div class="appear left">
-                <h2 class="">API</h2>
-                <p class="">
+                <h2 class="line">API</h2>
+                <p class="line">
                     Bij API werkte ik aan een Astro-project rondom een Harry Potter spell-book. Met verschillende Web API’s zoals SpeechSynthesis en Web Transitions.
                     Belangrijkste inzichten
                     Dynamische pagina’s genereren met getStaticPaths() in Astro.
@@ -190,16 +206,19 @@
             </div>
         </section>
 
-        <section>
+        <section 
+            data-type="content"
+            data-id="bt"
+        >
             <div class="appear right">
-                <h2 class="">Browser Tech</h2>
-                <p class="">
+                <h2 class="line">Browser Tech</h2>
+                <p class="line">
                     Tijdens Browser Technologies bouwde ik een formulier voor aangifte erfbelasting in de stijl van de NS. Hier lag de focus op formulieren, progressive enhancement en validatie.
                     Belangrijkste inzichten
                     Goede formulieren beginnen bij semantische HTML (fieldset, legend, label).
                     Mobile-first ontwerpen werkt efficiënter.
                     Progressive enhancement maakt websites robuuster.
-                    Validatie moet samenwerken met dynamische content.
+                    Validatie moet samenwerken met dynamische line.
                     De uitkomst is een volledig functioneel en toegankelijk formulier dat werkt mét en zonder JavaScript, inclusief dynamische velden, validatie en foutmeldingen.
                     UX/UI draait niet alleen om uiterlijk, maar vooral om duidelijke functionaliteit.
                 </p>
@@ -207,10 +226,13 @@
             </div>
         </section>
 
-        <section>
+        <section 
+            data-type="content"
+            data-id="css"
+        >
             <div class="appear left">
-                <h2 class="">CSS</h2>
-                <p class="">
+                <h2 class="line">CSS</h2>
+                <p class="line">
                     Bij CSS werkte ik aan een creatieve Artifaction-opdracht waarbij ik experimenteerde met grids, shapes, selectors en pseudo-random layouts.
                     Belangrijkste inzichten
                     De :has() selector opent veel nieuwe mogelijkheden in CSS.
@@ -224,15 +246,18 @@
             </div>
         </section>
         
-        <section>
+        <section 
+            data-type="content"
+            data-id="hcd"
+        >
             <div class="appear right">
-                <h2 class="">HCD</h2>
-                <p>
+                <h2 class="line">HCD</h2>
+                <p class="line">
                     Voor HCD ontwikkelde ik een Chrome extension waarmee gebruikers zelf de focus-startpositie van websites kunnen bepalen, gericht op toegankelijkheid en screenreadergebruikers.
                     Belangrijkste inzichten
                     Ontwerpen voor één specifieke gebruiker levert vaak betere oplossingen op.
                     Accessibility draait om kleine gebruikservaringen zoals focus, geluid en navigatie.
-                    content.js en popup.js communiceren via messages.
+                    line.js en popup.js communiceren via messages.
                     Testen met echte gebruikers levert de meest waardevolle feedback op.
                     Audio feedback moet ondersteunend zijn en niet storend naast screenreaders.
                     De uitkomst is een werkende Chrome extension waarmee focusposities opgeslagen en hersteld kunnen worden, inclusief shortcuts, focusbeheer en audio cues voor toegankelijkheid.
@@ -241,10 +266,13 @@
             </div>
         </section>
 
-        <section>
+        <section 
+            data-type="content"
+            data-id="meesterproef"
+        >
             <div class="appear left">
-                <h2 class="">Meesterproef</h2>
-                <p class="">
+                <h2 class="line">Meesterproef</h2>
+                <p class="line">
                     Doelen voor de meesterproef: Proberen goed in groepsverband te werken, opdrachten goed verdelen. Iedereen een kans geven om uitdaging op te zoeken. 
                     Een duidelijkere rol hebben binnen de groepsopdracht. JS verder onder controle krijgen en meer nieuwe dingen testen. Meer met 3D werken als het kan in de opdracht.
                     Ik vond de minor tot nu toe leerzaam en uitdagend. Ik heb veel vaardigheden ontwikkeld, 
