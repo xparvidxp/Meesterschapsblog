@@ -1,40 +1,6 @@
 @font-face {
-    font-family: "Midorima";
-    src: url("./assets/Midorima-PersonalUse-Regular.ttf") format("truetype");
-}
-
-@font-face {
     font-family: "Oswald";
     src: url("./assets/Oswald-VariableFont_wght.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "Bebas Neue";
-    src: url("./assets/BebasNeue-Regular.ttf") format("truetype");
-}
-
-@property --labelY {
-    syntax: "<length>";
-    inherits: true;
-    initial-value: 0px;
-}
-
-@property --catY {
-    syntax: "<length>";
-    inherits: true;
-    initial-value: 0px;
-}
-
-@property --textRightY {
-    syntax: "<length>";
-    inherits: true;
-    initial-value: 0px;
-}
-
-@property --textLeftY {
-    syntax: "<length>";
-    inherits: true;
-    initial-value: 0px;
 }
 
 * {
@@ -42,100 +8,29 @@
     margin: 0;
     box-sizing: border-box;
 
+    --crt-red: rgba(255, 0, 0, .18);
+    --crt-green: rgba(0, 255, 0, .12);
+    --crt-blue: rgba(0, 0, 255, .18);
 }
 
 body {
-   background:
-        radial-gradient(
-            circle at 25% 20%,
-            rgba(255, 230, 120, .35),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 70% 40%,
-            rgba(255,255,255,.08),
-            transparent 50%
-        ),
-        linear-gradient(
-            180deg,
-            #78bfd1,
-            #67b5ca
-        );
+    background:
+        radial-gradient(circle at 25% 20%, rgba(255, 230, 120, .15), transparent 35%),
+        radial-gradient(circle at 70% 40%, rgba(255,255,255,.08), transparent 50%),
+        linear-gradient(180deg, #78bfd1, #67b5ca);
 }
 
-.hero {
-    position: relative;
-    min-height: 100vh;
-    overflow: hidden;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-
-    padding: clamp(1.5rem, 5vw, 5rem);
-
-    background-image: url("./assets/BG.jpg");
-    background-size: cover;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-
-    filter:blur(.5px);
-
-    mask-image: linear-gradient(
-        to bottom,
-        black 0%,
-        black 98%,
-        transparent 100%
-    );
-
-    animation: parallax linear both;
-    animation-timeline: view();
-    animation-range: cover 0% cover 100%;
+section {
+    height: 100vh;
 }
 
-.hero::before {
-    opacity: 0;
-    content: "";
-    position: absolute;
-    inset: 0;
+/* CRT EFFECT */
 
-    background-image: url("./assets/LABEL.png");
-    background-size: clamp(5rem, 12vw, 12rem) auto;
-    background-position: right 2rem top calc(.2rem + var(--labelY));
-    background-repeat: no-repeat;
-
-    filter: drop-shadow(0 0 0.05rem black);
-    z-index: 2;
-
-    animation: printIn 1s ease-out forwards;
-    animation-delay: .5s;
-}
-
-.hero::after {
-    opacity: 0;
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background-image: url("./assets/CAT.png");
-    background-size: auto min(85vh, 90vw);
-    background-position: center calc(180% + var(--catY));
-    background-repeat: no-repeat;
-
-    filter: 
-        brightness(.8)
-        contrast(.85)
-        drop-shadow(0 0 0.05rem black);
-    z-index: 3;
-
-    animation: printIn 2s ease-out forwards;
-}
-
-.vignette {
-    position: absolute;
+.crt {
+    position: fixed;
     inset: 0;
     pointer-events: none;
-    z-index: 10;
+    z-index: 9999;
 
     background: radial-gradient(
         ellipse at center,
@@ -143,66 +38,194 @@ body {
         rgba(0, 0, 0, .15) 75%,
         rgba(0, 0, 0, .45) 100%
     );
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: .25;
+        mix-blend-mode: overlay;
+    }
+
+    &::before {
+        background: repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,.12) 0px,
+            rgba(255,255,255,.12) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+    }
+
+    &::after {
+        background: repeating-linear-gradient(
+            to right,
+            var(--crt-red) 0px,
+            var(--crt-green) 1px,
+            var(--crt-blue) 2px,
+            transparent 3px
+        );
+    }
 }
 
-.heroText {
-    position: relative;
+/* HERO */
 
+.heroScroll {
+    height: 220vh;
+}
+
+.hero {
+    position: sticky;
+    top: 0;
+
+    height: 100vh;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    padding: clamp(1.5rem, 5vw, 5rem);
+}
+
+/* LABEL */
+
+.heroLabel {
+    position: fixed;
+    right: 2rem;
+    top: 2rem;
+
+    width: clamp(5rem, 12vw, 12rem);
+    z-index: 2;
+
+    filter: drop-shadow(0 0 .05rem black);
+
+    opacity: 0;
+    animation: printIn 1s ease-out .5s forwards;
+}
+
+/* CAT */
+
+.catGroup {
+    position: absolute;
+    left: 60%;
+    bottom: 0vh;
+
+    height: min(85vh, 90vw);
+    z-index: 3;
+
+    transform: translateX(-50%);
+    will-change: transform, opacity;
+}
+
+.heroCat {
+    height: 100%;
+    display: block;
+
+    filter:
+        brightness(.8)
+        contrast(.85)
+        drop-shadow(0 0 .05rem black);
+
+    opacity: 0;
+    animation: printIn 2s ease-out forwards;
+}
+
+/* TEXT */
+
+.heroText {
     font-family: "Oswald", sans-serif;
     line-height: .9;
     color: #d3aa5a;
 
-    opacity: .92;
-    filter: contrast(.9);
-
     text-shadow:
-        1px 1px 0 rgba(0, 0, 0, .25),
-        -1px 0 0 rgba(255, 255, 255, .08);
+        1px 1px 0 rgba(0,0,0,.25),
+        -1px 0 0 rgba(255,255,255,.08);
     
+    opacity: 0;
     animation: printIn 1s ease-out forwards;
 }
 
 .textLeft {
-    position: relative;
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+
     z-index: 2;
-    
-    rotate: -.5deg;
-    transform: translateY(calc(-45vh + var(--textLeftY)));
     font-size: clamp(3rem, 7vw, 7.5rem);
+    rotate: -.5deg;    
 }
 
 .textRight {
-    position: relative;
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: 5vh;
+    text-align: left;
 
-    max-width: 8ch;
-    text-align: right;
-    z-index: 11;
-
+    z-index: 2;
+    font-size: clamp(3rem, 5vw, 7.5rem);
     rotate: .8deg;
-    transform:  translateY(calc(25vh + var(--textRightY)))
-                translateX(5vw);
-    font-size: clamp(3rem, 4vw, 7.5rem);
 }
 
-/* RESPONSIVE */
+/* SMOKE */
 
-/* KEYFRAMES */
+.smoke {
+    position: absolute;
+    left: 15%;
+    bottom: 14%;
 
-@keyframes parallax {
-    from {
-        --labelY: -40px;
-        --textLeftY: 100px;
-        --textRightY: 0px;
-        --catY: 60px;
-    }
+    width: 8rem;
+    height: 12rem;
+    z-index: 5;
 
-    to {
-        --labelY: 120px;
-        --textLeftY: 300px;
-        --textRightY: 150px;
-        --catY: -130px;
-    }
+    pointer-events: none;
 }
+
+.smoke span {
+    position: absolute;
+    bottom: 0;
+
+    width: 5rem;
+    height: 8rem;
+
+    background: linear-gradient(
+        to top,
+        rgba(255,255,255,.8),
+        transparent
+    );
+
+    border-radius: 50%;
+    filter: blur(4px);
+
+    opacity: 0;
+    animation: smokeRise 3s linear infinite;
+}
+
+.smoke span:nth-child(2) {
+    left: 1.5rem;
+    animation-delay: 1s;
+}
+
+.smoke span:nth-child(3) {
+    left: -.8rem;
+    animation-delay: 2s;
+}
+
+/* VHS TAPE */
+
+.vhsTape {
+    background-color: red;
+    width: 200px;
+    aspect-ratio: 1/1;
+}
+
+.vhsTape article {
+display: none;
+}
+
+/* ANIMATIONS */
 
 @keyframes printIn {
     from {
@@ -218,6 +241,24 @@ body {
     }
 }
 
+@keyframes smokeRise {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(.5);
+    }
+
+    20% {
+        opacity: .85;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-9rem) translateX(-2rem) scale(1.8) rotate(25deg);
+    }
+}
+
 /* Bronnen
 https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/filter-function/drop-shadow
-https://chatgpt.com/c/6a29d470-f7cc-83eb-94b3-e998e92eff82 */
+https://chatgpt.com/c/6a29d470-f7cc-83eb-94b3-e998e92eff82
+https://codepen.io/thisanimus/pen/OJpaqWz
+*/

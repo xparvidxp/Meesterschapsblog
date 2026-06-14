@@ -7,26 +7,37 @@
     <link rel="stylesheet" href="styles.css"></link>
 </head>
 <body>
+    <div class="crt"></div>
     <header>
     </header>
     <main>
         
-        <section 
-        class="hero" 
-        data-type="content" 
-        data-id="meesterschap"
-        >
-            <div class="vignette"></div>
-                <div class="textLeft">
-                    <p class="heroText">Web Development & Design</p>
-                </div>
-                <div class="textRight">
-                    <p class="heroText">Meesterschapsblog</p>
-                </div>
-            </div>
-        </section>
-        
-        <section 
+<section class="heroScroll">
+    <section class="hero">
+        <img class="heroLabel" src="./assets/LABEL.png" alt="">
+
+    <div class="catGroup">
+        <img class="heroCat" src="./assets/CAT.png" alt="">
+
+        <div class="smoke">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+        <div class="textLeft" data-type="scroll">
+            <p class="heroText">Minor<br>Web Development & Design</p>
+        </div>
+
+        <div class="textRight" data-type="scroll">
+            <p class="heroText">Meesterschapsblog</p>
+        </div>
+    </section>
+</section>
+
+<div class="vhsTape">
+        <article 
             data-type="content"
             data-id="hackathon"
         >
@@ -40,15 +51,15 @@
                 </p>
                 <a class="hackathonBtn button" href="https://mitchellkevin.github.io/Space/" target="_blank" rel="noopener"></a>
             </div>
-        </section>
+        </article>
 
-        <!-- <section data="content">
+        <!-- <article data="content">
             <div>
                     Weekly nerds. Hier komt de tekst
             </div>
-        </section> -->
+        </article> -->
 
-        <section 
+        <article 
             data-type="content"
             data-id="sprint0"
         >
@@ -81,9 +92,9 @@
                     3D assets kunnen gebruiken en kunnen animeren op websites.
                     </li>
                 </ul>
-        </section>
+        </article>
 
-        <section 
+        <article 
             data-type="content"
             data-id="api"
         >
@@ -101,9 +112,9 @@
                 </p>
                 <a class="" href="https://astro-workshop.onrender.com" target="_blank" rel="noopener"></a>
             </div>
-        </section>
+        </article>
 
-        <section 
+        <article 
             data-type="content"
             data-id="bt"
         >
@@ -121,9 +132,9 @@
                 </p>
                 <a class="" href="https://xparvidxp.github.io/browser_technologies/" target="_blank" rel="noopener"></a>
             </div>
-        </section>
+        </article>
 
-        <section 
+        <article 
             data-type="content"
             data-id="css"
         >
@@ -141,9 +152,9 @@
                 </p>
                 <a class="" href="https://xparvidxp.github.io/CSS/" target="_blank" rel="noopener"></a>
             </div>
-        </section>
+        </article>
         
-        <section 
+        <article 
             data-type="content"
             data-id="hcd"
         >
@@ -161,9 +172,9 @@
                 </p> 
                 <a class="" href="https://github.com/xparvidxp/HCD" target="_blank" rel="noopener"></a>
             </div>
-        </section>
+        </article>
 
-        <section 
+        <article 
             data-type="content"
             data-id="meesterproef"
         >
@@ -180,7 +191,9 @@
                 </p>
                 <a class="" href="https://mitchellkevin.github.io/Space/" target="_blank" rel="noopener"></a>
             </div>
-        </section>
+        </article>
+</div>
+
     </main>
 <script type="module" src="js/script.js"></script>
 </body>
