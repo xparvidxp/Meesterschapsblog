@@ -1,30 +1,223 @@
+@font-face {
+    font-family: "Midorima";
+    src: url("./assets/Midorima-PersonalUse-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Oswald";
+    src: url("./assets/Oswald-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Bebas Neue";
+    src: url("./assets/BebasNeue-Regular.ttf") format("truetype");
+}
+
+@property --labelY {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 0px;
+}
+
+@property --catY {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 0px;
+}
+
+@property --textRightY {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 0px;
+}
+
+@property --textLeftY {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 0px;
+}
+
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+   background:
+        radial-gradient(
+            circle at 25% 20%,
+            rgba(255, 230, 120, .35),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 70% 40%,
+            rgba(255,255,255,.08),
+            transparent 50%
+        ),
+        linear-gradient(
+            180deg,
+            #78bfd1,
+            #67b5ca
+        );
 }
 
 .hero {
-    background-image: url("./assets/cat-smoking-bg.jpg");
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    padding: clamp(1.5rem, 5vw, 5rem);
+
+    background-image: url("./assets/BG.jpg");
     background-size: cover;
+    background-position: center bottom;
     background-repeat: no-repeat;
 
-    min-height: 100vh;
+    filter:blur(.5px);
+
+    mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 98%,
+        transparent 100%
+    );
+
+    animation: parallax linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+}
+
+.hero::before {
+    opacity: 0;
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url("./assets/LABEL.png");
+    background-size: clamp(5rem, 12vw, 12rem) auto;
+    background-position: right 2rem top calc(.2rem + var(--labelY));
+    background-repeat: no-repeat;
+
+    filter: drop-shadow(0 0 0.05rem black);
+    z-index: 2;
+
+    animation: printIn 1s ease-out forwards;
+    animation-delay: .5s;
 }
 
 .hero::after {
+    opacity: 0;
     content: "";
     position: absolute;
+    inset: 0;
 
-    left: 0;
-    right: 0;
-    bottom: 0;
+    background-image: url("./assets/CAT.png");
+    background-size: auto min(85vh, 90vw);
+    background-position: center calc(180% + var(--catY));
+    background-repeat: no-repeat;
 
-    height: 10vh;
+    filter: 
+        brightness(.8)
+        contrast(.85)
+        drop-shadow(0 0 0.05rem black);
+    z-index: 3;
 
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        black,
-        transparent
+    animation: printIn 2s ease-out forwards;
+}
+
+.vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+
+    background: radial-gradient(
+        ellipse at center,
+        transparent 55%,
+        rgba(0, 0, 0, .15) 75%,
+        rgba(0, 0, 0, .45) 100%
     );
 }
+
+.heroText {
+    position: relative;
+
+    font-family: "Oswald", sans-serif;
+    line-height: .9;
+    color: #d3aa5a;
+
+    opacity: .92;
+    filter: contrast(.9);
+
+    text-shadow:
+        1px 1px 0 rgba(0, 0, 0, .25),
+        -1px 0 0 rgba(255, 255, 255, .08);
+    
+    animation: printIn 1s ease-out forwards;
+}
+
+.textLeft {
+    position: relative;
+    z-index: 2;
+    
+    rotate: -.5deg;
+    transform: translateY(calc(-45vh + var(--textLeftY)));
+    font-size: clamp(3rem, 7vw, 7.5rem);
+}
+
+.textRight {
+    position: relative;
+
+    max-width: 8ch;
+    text-align: right;
+    z-index: 11;
+
+    rotate: .8deg;
+    transform:  translateY(calc(25vh + var(--textRightY)))
+                translateX(5vw);
+    font-size: clamp(3rem, 4vw, 7.5rem);
+}
+
+/* RESPONSIVE */
+
+/* KEYFRAMES */
+
+@keyframes parallax {
+    from {
+        --labelY: -40px;
+        --textLeftY: 100px;
+        --textRightY: 0px;
+        --catY: 60px;
+    }
+
+    to {
+        --labelY: 120px;
+        --textLeftY: 300px;
+        --textRightY: 150px;
+        --catY: -130px;
+    }
+}
+
+@keyframes printIn {
+    from {
+        opacity: 0;
+        transform: translateY(2rem);
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* Bronnen
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/filter-function/drop-shadow
+https://chatgpt.com/c/6a29d470-f7cc-83eb-94b3-e998e92eff82 */
