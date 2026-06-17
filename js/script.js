@@ -1,20 +1,20 @@
-// Sterren achtergrond
+// RANDOM VALUE
 
-const sterren = document.querySelectorAll(".star");
+const random = document.querySelectorAll(".random");
 
-sterren.forEach((ster) => {
-    ster.style.setProperty("--star-top", `${Math.random() * 100}%`);
-    ster.style.setProperty("--star-left", `${Math.random() * 100}%`);
-    ster.style.setProperty("--star-size", `${Math.random() * .5 + 1}px`);
-    ster.style.setProperty("--star-color", "white");
+random.forEach((item) => {
+    item.style.setProperty("--rotate",`${Math.random() * 90 - 45}deg`);
+    // ruimte voor meer
 });
 
-// Hero scrollen
+// SCROLL ANIMATIE
 
-const heroScroll = document.querySelector(".heroScroll");
+const heroScroll = document.querySelector(".contentScroll");
 const cat = document.querySelector(".catGroup");
 const text = document.querySelectorAll("[data-type='scroll']");
-const label = document.querySelector(".heroLabel");
+const label = document.querySelector(".contentLabel");
+const tape = document.querySelector(".vhsStack");
+const content = document.querySelectorAll("article[data-type='content']");
 
 window.addEventListener("scroll", () => {
     const rect = heroScroll.getBoundingClientRect();
@@ -31,11 +31,22 @@ window.addEventListener("scroll", () => {
 
     cat.style.opacity = 1 - progress;
 
+    const tapeProgress = Math.max(0, (progress - 0.7) / 0.3);
+    const eased = 1 - Math.pow(1 - tapeProgress, 3);
+
+    tape.style.translate = `0 ${-35 + eased * 43.5}vh`;
+    tape.style.rotate = `${-3 + eased * 3}deg`;
+    tape.style.opacity = tapeProgress;
+
+    content.forEach((item) => {
+        item.style.translate = `0 ${-35 + eased * 35}vh`;
+        item.style.rotate = `${-3 + eased * 3}deg`;
+        item.style.opacity = tapeProgress;
+    });
+
+
     text.forEach((item) => {
         item.style.opacity = 1 - progress;
         item.style.translate = `0 ${progress * 20}vh`;
     });
 });
-
-// Bronnen
-// Sterren achtergrond uit Hackathon project

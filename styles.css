@@ -3,6 +3,36 @@
     src: url("./assets/Oswald-VariableFont_wght.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: "Permanent Marker";
+    src: url("https://fonts.gstatic.com/s/permanentmarker/v16/Fh4uPib9Iyv2ucM6pGQMWimMp004G0uXmA.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Caveat";
+    src: url("https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjRV6eIWpVQ.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Anton";
+    src: url("https://fonts.gstatic.com/s/anton/v25/1Ptgg87LROyAm3Kz-C8CSKlv.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Archivo Black";
+    src: url("https://fonts.gstatic.com/s/archivoblack/v21/HTxqL289NzCGg4MzN6KJ7eW6OYs.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Audiowide";
+    src: url("https://fonts.gstatic.com/s/audiowide/v20/l7gdbjpo0cum0ckerWCdmA_OIxo.woff2") format("woff2");
+    font-display: swap;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -18,6 +48,15 @@ body {
         radial-gradient(circle at 25% 20%, rgba(255, 230, 120, .15), transparent 35%),
         radial-gradient(circle at 70% 40%, rgba(255,255,255,.08), transparent 50%),
         linear-gradient(180deg, #78bfd1, #67b5ca);
+}
+
+article {
+display: none;
+max-width: 40ch;
+}
+
+input[type='radio'] {
+    display:none;
 }
 
 section {
@@ -70,32 +109,29 @@ section {
     }
 }
 
-/* HERO */
+/* Content */
 
-.heroScroll {
+.contentScroll {
     height: 220vh;
 }
 
-.hero {
+.content {
     position: sticky;
     top: 0;
-
-    height: 100vh;
     overflow: hidden;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     align-items: center;
 
     padding: clamp(1.5rem, 5vw, 5rem);
 }
 
-/* LABEL */
-
-.heroLabel {
+.contentLabel {
     position: fixed;
-    right: 2rem;
-    top: 2rem;
+    right: 2vw;
+    top: 2vw;
 
     width: clamp(5rem, 12vw, 12rem);
     z-index: 2;
@@ -104,6 +140,11 @@ section {
 
     opacity: 0;
     animation: printIn 1s ease-out .5s forwards;
+}
+
+.wrapper {
+    justify-content: right;
+    align-self: right;
 }
 
 /* CAT */
@@ -120,7 +161,7 @@ section {
     will-change: transform, opacity;
 }
 
-.heroCat {
+.contentCat {
     height: 100%;
     display: block;
 
@@ -135,7 +176,7 @@ section {
 
 /* TEXT */
 
-.heroText {
+.contentText {
     font-family: "Oswald", sans-serif;
     line-height: .9;
     color: #d3aa5a;
@@ -154,13 +195,13 @@ section {
     align-self: start;
 
     z-index: 2;
-    font-size: clamp(3rem, 7vw, 7.5rem);
+    font-size: clamp(3rem, 8vw, 6.5rem);
     rotate: -.5deg;    
 }
 
 .textRight {
     grid-column: 1;
-    grid-row: 1;
+    grid-row: 2;
     margin-top: 5vh;
     text-align: left;
 
@@ -215,14 +256,318 @@ section {
 
 /* VHS TAPE */
 
-.vhsTape {
-    background-color: red;
-    width: 200px;
-    aspect-ratio: 1/1;
+.random {
+    --rotate: 0deg;
 }
 
-.vhsTape article {
-display: none;
+.vhsSection {
+    grid-column: 1;
+    grid-row: 1;
+
+    justify-self: start;
+    align-self: center;
+
+    height: auto;
+    min-height: 0;
+    padding: 0;
+    margin-top: 10rem;
+
+    display: flex;
+    z-index: 50;
+}
+
+.vhsStack {
+    width: min(52rem, 100%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    opacity: 0;
+}
+
+.tape {
+    transition: .2s;
+
+    /* :BEFORE VARS */
+    --strip-width: clamp(2rem, 7vw, 5.5rem);
+    --strip:
+        linear-gradient(
+            90deg,
+            var(--tape-dark) 0 35%,
+            #f2e7c7 35% 70%,
+            var(--tape-dark) 70% 100%
+        );
+
+    /* :AFTER VARS */
+    --content: "1";
+    --width: clamp(1rem, 4vw, 2rem);
+    --height: clamp(1rem, 4vw, 2rem);
+    --radius: 50%;
+    --background: black;
+    --color: white;
+    --border: none;
+    --font-size: clamp(.6rem, 1vw, .9rem);
+    --rotate: 0deg;
+    --inline: 2rem;
+    --block: .5rem;
+
+    /* TAPE VARS */
+    --tape-dark: #06102a;
+    --tape-paper: #efe2bd;
+    --tape-accent: #d94a4a;
+
+    display: flex;
+    
+    min-height: clamp(3.5rem, vw, 5.5rem);
+    width: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--tape-dark) 0 12%,
+            var(--tape-paper) 12% 90%,
+            var(--tape-dark) 90% 100%
+        );
+
+    border: .18rem solid rgba(240, 232, 200, 1);
+    border-radius: .25rem;
+
+    box-shadow:
+        inset 0 0 .6rem rgba(0,0,0,.4),
+        0 .25rem .5rem rgba(0,0,0,.35);
+
+    font-family: "Oswald", sans-serif;
+    font-size: clamp(1.6rem, 2vw, 4rem);
+    line-height: .9;
+    color: var(--tape-accent);
+
+    cursor: pointer;
+
+
+    &::before {
+        content: "";
+        
+        width: var(--strip-width);
+        height: 100%;
+
+        background: var(--strip);
+    }
+
+    &::after {
+        content: var(--content);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: var(--width);
+        height: var(--height);
+        padding: .2vw;
+
+        border-radius: var(--radius);
+
+        background: var(--background);
+        color: var(--color);
+        border: var(--border);
+
+        font-size: var(--font-size);
+
+        transform: rotate(var(--rotate));
+        margin-inline-start: var(--inline, auto);
+        margin-block-start: var(--block, auto);
+
+        font-family: arial;
+    }
+
+    span {
+        padding-inline: clamp(.5em, 1vw, .5em);
+        padding-block: clamp(.5em, 1vw, .5em);
+    }
+}
+
+/* DECORATIONS */
+
+.red {
+    --tape-accent: #d94a4a;
+    width: 99%;
+    font-family: "Caveat", sans-serif;
+
+    --content: "18+";
+    --width: clamp(1rem, 4vw, 2rem);
+    --height: clamp(1rem, 4vw, 2rem);
+    --radius: 50%;
+    --background: purple;
+    --color: white;
+    --border: none;
+    --font-size: clamp(.6rem, 1vw, .9rem);
+    --inline: clamp(0rem, -1rem, -2rem);
+    --block: clamp(.25rem, 1vw, 1rem);
+
+    --strip-width: clamp(2.5rem, 8vw, 6rem);
+    --strip:
+        linear-gradient(
+            90deg,
+            #06102a 0 18%,
+            #713a89 18% 38%,
+            #c54867 38% 58%,
+            #df7644 58% 78%,
+            #e2b85a 78% 100%
+        );
+}
+
+.blue {
+    --tape-accent: #3859b8;
+    width: 96%;
+    font-family: "Permanent Marker", sans-serif;
+
+    --content: "VHS";
+    --width: clamp(1rem, 5vw, 2rem);
+    --height: clamp(.75rem, 2vw, 1rem);
+    --radius: 0%;
+    --background: none;
+    --color: white;
+    --border: white solid clamp(1px, 0.15vw, 1.1px);
+    --font-size: clamp(.4rem, 1.2vw, 1rem);
+    --rotate: -90deg;
+    --inline: auto;
+    --block: clamp(1.1rem, 2.5vw, .5rem);
+
+    --strip-width: clamp(3rem, 8vw, 6rem);
+    --strip:
+        linear-gradient(
+            to bottom,
+            #49bdb6 0 45%,
+            #f3e7c6 45% 60%,
+            #d54873 60% 100%
+        );
+}
+
+.pink {
+    --tape-accent: #d83d86;
+    width: 98%;
+    font-family: "Anton", sans-serif;
+
+    --content: "E";
+    --width: clamp(1rem, 2vw, 1.5rem);
+    --height: clamp(1rem, 2vw, 1.5rem);
+    --radius: 0%;
+    --background: black;
+    --color: white;
+    --border: white solid clamp(1px, 0.15vw, 3px);
+    --font-size: clamp(.4rem, 1vw, .9rem);
+    --block: clamp(.25rem, 1vw, 1rem);
+
+
+    --strip-width: clamp(2rem, 6vw, 4rem);
+    --strip:
+        linear-gradient(
+            90deg,
+            var(--tape-dark) 0 20%,
+            #f3e7c6 20% 100%
+        );
+}
+
+.darkblue {
+    --tape-accent: #111a33;
+    width: 97%;
+    font-family: "Archivo Black", sans-serif;
+
+    --content: "▶";
+    --width: clamp(1.2rem, 2vw, 2rem);
+    --height: clamp(1.2rem, 2vw, 2rem);
+    --radius: 0%;
+    --background: transparent;
+    --color: black;
+    --border: none;
+    --font-size: clamp(.6rem, 1.5vw, 1.5rem);
+
+    --rotate: 0deg;
+    --block: clamp(.25rem, 1vw, 1rem);
+
+    --strip-width: clamp(3rem, 9vw, 6rem);
+    --strip:
+        linear-gradient(
+            90deg,
+            var(--tape-dark) 0 75%,
+            #f3e7c6 75% 100%
+        );
+}
+
+.purple {
+    --tape-accent: #7d38b8;
+    width: 100%;
+    font-family: "Audiowide", sans-serif;
+
+    --content: "SP";
+    --width: clamp(1.5rem, 4vw, 2rem);
+    --height: clamp(.8rem, 1.8vw, 1rem);
+    --radius: .2rem;
+    --background: #111;
+    --color: #7d38b8;
+    --border: clamp(1px, 0.15vw, 3px) solid #7d38b8;
+    --font-size: clamp(.6rem, 1vw, 1rem);
+
+    --rotate: 0deg;
+    --block: clamp(.25rem, 2vw, 1rem);
+
+    --strip-width: clamp(3rem, 8vw, 5.5rem);
+    --strip:
+        repeating-linear-gradient(
+            90deg,
+            #111 0 .35rem,
+            #f3e7c6 .35rem .7rem
+        );
+
+}
+
+/* STATES */
+
+.tape:hover {
+    outline: .2rem solid grey;
+    transform:
+        scale(102%)
+        translate(1rem);
+}
+
+.vhsStack input[type="radio"]:checked + .tape {
+    background:
+        linear-gradient(
+            90deg,
+            var(--tape-dark) 0 12%,
+            var(--tape-paper) 12% 90%,
+            var(--tape-dark) 90% 100%
+        );
+
+    outline: .2rem solid #d3aa5a;
+}
+
+.content:has(#hackathon:checked) article[data-id="hackathon"] {
+    display: block;
+}
+
+.content:has(#sprint0:checked) article[data-id="sprint0"] {
+    display: block;
+}
+
+.content:has(#api:checked) article[data-id="api"] {
+    display: block;
+}
+
+.content:has(#bt:checked) article[data-id="bt"] {
+    display: block;
+}
+
+.content:has(#css:checked) article[data-id="css"] {
+    display: block;
+}
+
+.content:has(#hcd:checked) article[data-id="hcd"] {
+    display: block;
+}
+
+.content:has(#meesterproef:checked) article[data-id="meesterproef"] {
+    display: block;
 }
 
 /* ANIMATIONS */
@@ -254,6 +599,41 @@ display: none;
     100% {
         opacity: 0;
         transform: translateY(-9rem) translateX(-2rem) scale(1.8) rotate(25deg);
+    }
+}
+
+/* MEDIA */
+
+@media (width < 700px) {
+
+    .textLeft {
+        margin-top: clamp(5rem, 10vw, 2rem);
+    }
+
+    .textRight {
+        grid-row: 1;
+        margin-top: clamp(2rem, 2vw, 25rem);
+        margin-left: 1rem;
+    }
+
+    .contentLabel {
+    position: fixed;
+    right: 5vw;
+    top: 5vw;
+    width:6rem;
+    
+}
+}
+
+@media (700px <= width <= 1200px) {
+
+    .textLeft {
+        margin-top: 2rem;
+    }
+
+    .textRight {
+        font-size: 30pt;
+        padding-bottom: 10rem;
     }
 }
 

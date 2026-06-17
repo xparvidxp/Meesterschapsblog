@@ -12,60 +12,88 @@
     </header>
     <main>
         
-<section class="heroScroll">
-    <section class="hero">
-        <img class="heroLabel" src="./assets/LABEL.png" alt="">
+<div class="contentScroll">
+    <section class="content">
+        <img class="contentLabel" src="./assets/LABEL.png" alt="">
 
-    <div class="catGroup">
-        <img class="heroCat" src="./assets/CAT.png" alt="">
+        <div class="catGroup">
+            <img class="contentCat" src="./assets/CAT.png" alt="">
 
-        <div class="smoke">
-            <span></span>
-            <span></span>
-            <span></span>
+            <div class="smoke">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-    </div>
 
         <div class="textLeft" data-type="scroll">
-            <p class="heroText">Minor<br>Web Development & Design</p>
+            <p class="contentText">Minor<br>Web Development & Design</p>
         </div>
 
         <div class="textRight" data-type="scroll">
-            <p class="heroText">Meesterschapsblog</p>
+            <p class="contentText">Meesterschapsblog</p>
         </div>
-    </section>
-</section>
 
-<div class="vhsTape">
-        <article 
-            data-type="content"
-            data-id="hackathon"
-        >
-            <div class="">
-                <h2 class="">Hackathon</h2>
-                <p class="">
+    <nav class="vhsSection">
+        <form class="vhsStack">
+            <input type="radio" name="project" id="hackathon">
+            <label class="tape red random" for="hackathon">
+                <span>Hackathon</span>
+            </label>
+
+            <input type="radio" name="project" id="sprint0">
+            <label class="tape yellow" for="sprint0">
+                <span>Sprint 0</span>
+            </label>
+
+            <input type="radio" name="project" id="api">
+            <label class="tape pink random" for="api">
+                <span>API</span>
+            </label>
+
+            <input type="radio" name="project" id="bt">
+            <label class="tape darkblue random" for="bt">
+                <span>BT</span>
+            </label>
+
+            <input type="radio" name="project" id="css">
+            <label class="tape pink random" for="css">
+                <span>CSS</span>
+            </label>
+
+            <input type="radio" name="project" id="hcd">
+            <label class="tape purple random" for="hcd">
+                <span>HCD</span>
+            </label>
+
+            <input type="radio" name="project" id="meesterproef">
+            <label class="tape blue" for="meesterproef">
+                <span>Meesterproef</span>
+            </label>
+        </form>
+    </nav>
+
+        <div class="wrapper">
+            <article 
+                data-type="content"
+                data-id="hackathon"
+            >
+                <h2>Hackathon</h2>
+                <p>
                     De Hackathon was een samenwerking met SRON, een ruimtevaartbedrijf door studenten. Wij hebben de website ontwikkeld in korte tijd.
                     Mijn inbreng was het 3D modelleren van de satteliet in Blender die gebruikt werd om de verschillende onderdelen van de satteliet weer te geven.
                     Verder heb ik de sterrenhemel in de achtergrond gemaakt en ervoor gezorgd dat deze beweegt wanneer je muis beweegt (parralax)
                     Een nieuw inzicht van mij was dat coderen als groep prima kan, hier had ik twijfels over. Je kan ook veel sneller bij een eindresultaat komen.
                 </p>
-                <a class="hackathonBtn button" href="https://mitchellkevin.github.io/Space/" target="_blank" rel="noopener"></a>
-            </div>
-        </article>
+                <a href="https://mitchellkevin.github.io/Space/" target="_blank" rel="noopener"></a>
+            </article>
 
-        <!-- <article data="content">
-            <div>
-                    Weekly nerds. Hier komt de tekst
-            </div>
-        </article> -->
-
-        <article 
+            <article 
             data-type="content"
             data-id="sprint0"
-        >
-            <div class="">
-                <h2 class="">Sprint 0</h2>
-                <p class="">
+            >
+                <h2>Sprint 0</h2>
+                <p>
                     Tijdens Sprint 0 heb ik gewerkt aan een website waarop ik mezelf voorstel. Het project begon heel ambitieus met een idee van een 3D geanimeerd badeendje,
                     waarop gebruikers konden klikken om meer informatie over mij te krijgen. Dit was technisch nog te hoog gegrepen.
                     Daarom heb ik mijn aanpak aangepast en ben ik eerst gaan focussen op de minimale eisen van de opdracht.
@@ -74,9 +102,9 @@
                     Zelf proberen helpt beter bij leren. Het is beter om zelf te experimenteren. Dat helpt met kennis onthouden.
                     Werken met Blender en animaties geeft veel mogelijkheden maar kost veel tijd en technische kennis.
                 </p>
-                <a class="" href="https://xparvidxp.github.io/Sprint-0_webdev/" target="_blank" rel="noopener"></a>
-            </div>
-            <div class=" ">
+                <a href="https://xparvidxp.github.io/Sprint-0_webdev/" target="_blank" rel="noopener"></a>
+
+            <!-- <div>
                 <h2 class="">Leerdoelen begin minor</h2>
                 <ul>
                     <li class="">
@@ -92,107 +120,119 @@
                     3D assets kunnen gebruiken en kunnen animeren op websites.
                     </li>
                 </ul>
-        </article>
-
-        <article 
+            </div> -->
+            </article>
+        
+            <article 
             data-type="content"
             data-id="api"
-        >
-            <div class="">
-                <h2 class="">API</h2>
-                <p class="">
-                    Bij API werkte ik aan een Astro-project rondom een Harry Potter spell-book. Met verschillende Web API’s zoals SpeechSynthesis en Web Transitions.
-                    Belangrijkste inzichten
-                    Dynamische pagina’s genereren met getStaticPaths() in Astro.
-                    Data ophalen en verwerken vanuit een externe API.
-                    Spraakherkenning koppelen aan navigatie.
-                    Toegankelijkheid draait om voorspelbaarheid, schaalbaarheid en gebruiksgemak.
-                    Web transitions kunnen een website veel meer gevoel en interactie geven.
-                    Het resultaat is een website waar gebruikers door een spellbook kunnen bladeren, met hun stem.
-                </p>
-                <a class="" href="https://astro-workshop.onrender.com" target="_blank" rel="noopener"></a>
-            </div>
-        </article>
+            >
+                <div class="">
+                    <h2 class="">API</h2>
+                    <p class="">
+                        Bij API werkte ik aan een Astro-project rondom een Harry Potter spell-book. Met verschillende Web API’s zoals SpeechSynthesis en Web Transitions.
+                        Belangrijkste inzichten
+                        Dynamische pagina’s genereren met getStaticPaths() in Astro.
+                        Data ophalen en verwerken vanuit een externe API.
+                        Spraakherkenning koppelen aan navigatie.
+                        Toegankelijkheid draait om voorspelbaarheid, schaalbaarheid en gebruiksgemak.
+                        Web transitions kunnen een website veel meer gevoel en interactie geven.
+                        Het resultaat is een website waar gebruikers door een spellbook kunnen bladeren, met hun stem.
+                    </p>
+                    <a class="" href="https://astro-workshop.onrender.com" target="_blank" rel="noopener"></a>
+                </div>
+            </article>
 
-        <article 
+            <article 
             data-type="content"
             data-id="bt"
-        >
-            <div class=" ">
-                <h2 class="">Browser Tech</h2>
-                <p class="">
-                    Tijdens Browser Technologies bouwde ik een formulier voor aangifte erfbelasting in de stijl van de NS. Hier lag de focus op formulieren, progressive enhancement en validatie.
-                    Belangrijkste inzichten
-                    Goede formulieren beginnen bij semantische HTML (fieldset, legend, label).
-                    Mobile-first ontwerpen werkt efficiënter.
-                    Progressive enhancement maakt websites robuuster.
-                    Validatie moet samenwerken met dynamische .
-                    De uitkomst is een volledig functioneel en toegankelijk formulier dat werkt mét en zonder JavaScript, inclusief dynamische velden, validatie en foutmeldingen.
-                    UX/UI draait niet alleen om uiterlijk, maar vooral om duidelijke functionaliteit.
-                </p>
-                <a class="" href="https://xparvidxp.github.io/browser_technologies/" target="_blank" rel="noopener"></a>
-            </div>
-        </article>
+            >
+                <div class=" ">
+                    <h2 class="">Browser Tech</h2>
+                    <p class="">
+                        Tijdens Browser Technologies bouwde ik een formulier voor aangifte erfbelasting in de stijl van de NS. Hier lag de focus op formulieren, progressive enhancement en validatie.
+                        Belangrijkste inzichten
+                        Goede formulieren beginnen bij semantische HTML (fieldset, legend, label).
+                        Mobile-first ontwerpen werkt efficiënter.
+                        Progressive enhancement maakt websites robuuster.
+                        Validatie moet samenwerken met dynamische .
+                        De uitkomst is een volledig functioneel en toegankelijk formulier dat werkt mét en zonder JavaScript, inclusief dynamische velden, validatie en foutmeldingen.
+                        UX/UI draait niet alleen om uiterlijk, maar vooral om duidelijke functionaliteit.
+                    </p>
+                    <a class="" href="https://xparvidxp.github.io/browser_technologies/" target="_blank" rel="noopener"></a>
+                </div>
+            </article>
 
-        <article 
-            data-type="content"
-            data-id="css"
-        >
-            <div class="">
-                <h2 class="">CSS</h2>
-                <p class="">
-                    Bij CSS werkte ik aan een creatieve Artifaction-opdracht waarbij ik experimenteerde met grids, shapes, selectors en pseudo-random layouts.
-                    Belangrijkste inzichten
-                    De :has() selector opent veel nieuwe mogelijkheden in CSS.
-                    Moderne CSS kan veel logica oplossen zonder JavaScript.
-                    CSS Grid draait om verhoudingen en structuur, niet alleen pixels.
-                    Randomness in CSS vraagt om creatieve oplossingen.
-                    Nieuwe CSS-functies zoals random() kunnen krachtig zijn, maar zijn lastig te beheersen.
-                    De uitkomst is een experimentele generatieve grid-layout met patronen, pseudo-random plaatsing, dark/light mode en interactieve CSS-effecten
-                </p>
-                <a class="" href="https://xparvidxp.github.io/CSS/" target="_blank" rel="noopener"></a>
-            </div>
-        </article>
+            <article 
+                data-type="content"
+                data-id="css"
+            >
+                <div class="">
+                    <h2 class="">CSS</h2>
+                    <p class="">
+                        Bij CSS werkte ik aan een creatieve Artifaction-opdracht waarbij ik experimenteerde met grids, shapes, selectors en pseudo-random layouts.
+                        Belangrijkste inzichten
+                        De :has() selector opent veel nieuwe mogelijkheden in CSS.
+                        Moderne CSS kan veel logica oplossen zonder JavaScript.
+                        CSS Grid draait om verhoudingen en structuur, niet alleen pixels.
+                        Randomness in CSS vraagt om creatieve oplossingen.
+                        Nieuwe CSS-functies zoals random() kunnen krachtig zijn, maar zijn lastig te beheersen.
+                        De uitkomst is een experimentele generatieve grid-layout met patronen, pseudo-random plaatsing, dark/light mode en interactieve CSS-effecten
+                    </p>
+                    <a class="" href="https://xparvidxp.github.io/CSS/" target="_blank" rel="noopener"></a>
+                </div>
+            </article>
         
-        <article 
-            data-type="content"
-            data-id="hcd"
-        >
-            <div class=" ">
-                <h2 class="">HCD</h2>
-                <p class="">
-                    Voor HCD ontwikkelde ik een Chrome extension waarmee gebruikers zelf de focus-startpositie van websites kunnen bepalen, gericht op toegankelijkheid en screenreadergebruikers.
-                    Belangrijkste inzichten
-                    Ontwerpen voor één specifieke gebruiker levert vaak betere oplossingen op.
-                    Accessibility draait om kleine gebruikservaringen zoals focus, geluid en navigatie.
-                    .js en popup.js communiceren via messages.
-                    Testen met echte gebruikers levert de meest waardevolle feedback op.
-                    Audio feedback moet ondersteunend zijn en niet storend naast screenreaders.
-                    De uitkomst is een werkende Chrome extension waarmee focusposities opgeslagen en hersteld kunnen worden, inclusief shortcuts, focusbeheer en audio cues voor toegankelijkheid.
-                </p> 
-                <a class="" href="https://github.com/xparvidxp/HCD" target="_blank" rel="noopener"></a>
-            </div>
-        </article>
+            <article 
+                data-type="content"
+                data-id="hcd"
+            >
+                <div class=" ">
+                    <h2 class="">HCD</h2>
+                    <p class="">
+                        Voor HCD ontwikkelde ik een Chrome extension waarmee gebruikers zelf de focus-startpositie van websites kunnen bepalen, gericht op toegankelijkheid en screenreadergebruikers.
+                        Belangrijkste inzichten
+                        Ontwerpen voor één specifieke gebruiker levert vaak betere oplossingen op.
+                        Accessibility draait om kleine gebruikservaringen zoals focus, geluid en navigatie.
+                        .js en popup.js communiceren via messages.
+                        Testen met echte gebruikers levert de meest waardevolle feedback op.
+                        Audio feedback moet ondersteunend zijn en niet storend naast screenreaders.
+                        De uitkomst is een werkende Chrome extension waarmee focusposities opgeslagen en hersteld kunnen worden, inclusief shortcuts, focusbeheer en audio cues voor toegankelijkheid.
+                    </p> 
+                    <a class="" href="https://github.com/xparvidxp/HCD" target="_blank" rel="noopener"></a>
+                </div>
+            </article>
 
-        <article 
-            data-type="content"
-            data-id="meesterproef"
-        >
-            <div class="">
-                <h2 class="">Meesterproef</h2>
-                <p class="">
-                    Doelen voor de meesterproef: Proberen goed in groepsverband te werken, opdrachten goed verdelen. Iedereen een kans geven om uitdaging op te zoeken. 
-                    Een duidelijkere rol hebben binnen de groepsopdracht. JS verder onder controle krijgen en meer nieuwe dingen testen. Meer met 3D werken als het kan in de opdracht.
-                    Ik vond de minor tot nu toe leerzaam en uitdagend. Ik heb veel vaardigheden ontwikkeld, 
-                    en ook geleerd hoe belangrijk toegankelijkheid en gebruiksvriendelijkheid is bij het ontwikkelen van websites.
-                    Ik heb beter leren inschatten in wat haalbaar is in een bepaalde tijd, en hoe ik een idee eerst in de basis af kan maken
-                    en daarna extra functies kan toevoegen.
-                    Ik vind het leuk om visueel interessante dingen te maken, zoals 3D modellen en animaties. Dit heb ik ook kunnen toepassen in web development.
-                </p>
-                <a class="" href="https://mitchellkevin.github.io/Space/" target="_blank" rel="noopener"></a>
-            </div>
-        </article>
+            <article 
+                data-type="content"
+                data-id="meesterproef"
+            >
+                <div class="">
+                    <h2 class="">Meesterproef</h2>
+                    <p class="">
+                        Doelen voor de meesterproef: Proberen goed in groepsverband te werken, opdrachten goed verdelen. Iedereen een kans geven om uitdaging op te zoeken. 
+                        Een duidelijkere rol hebben binnen de groepsopdracht. JS verder onder controle krijgen en meer nieuwe dingen testen. Meer met 3D werken als het kan in de opdracht.
+                        Ik vond de minor tot nu toe leerzaam en uitdagend. Ik heb veel vaardigheden ontwikkeld, 
+                        en ook geleerd hoe belangrijk toegankelijkheid en gebruiksvriendelijkheid is bij het ontwikkelen van websites.
+                        Ik heb beter leren inschatten in wat haalbaar is in een bepaalde tijd, en hoe ik een idee eerst in de basis af kan maken
+                        en daarna extra functies kan toevoegen.
+                        Ik vind het leuk om visueel interessante dingen te maken, zoals 3D modellen en animaties. Dit heb ik ook kunnen toepassen in web development.
+                    </p>
+                    <a class="" href="https://mitchellkevin.github.io/Space/" target="_blank" rel="noopener"></a>
+                </div>
+            </article>
+        </div>
+    </section>
 </div>
+
+
+
+
+        <!-- <article data="content">
+            <div>
+                    Weekly nerds. Hier komt de tekst
+            </div>
+        </article> -->
 
     </main>
 <script type="module" src="js/script.js"></script>
