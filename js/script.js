@@ -16,7 +16,7 @@ const label = document.querySelector(".labelGroup");
 const tape = document.querySelector(".vhsStack");
 const content = document.querySelectorAll(".wrapper");
 
-const mobileView = window.matchMedia("(width < 700px)");
+const mobileView = window.matchMedia("(max-width: 699px)");
 
 function getScrollSettings() {
     if (mobileView.matches) {
