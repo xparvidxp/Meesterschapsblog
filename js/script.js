@@ -12,11 +12,36 @@ random.forEach((item) => {
 const heroScroll = document.querySelector(".contentScroll");
 const cat = document.querySelector(".catGroup");
 const text = document.querySelectorAll("[data-type='scroll']");
-const label = document.querySelector(".contentLabel");
+const label = document.querySelector(".labelGroup");
 const tape = document.querySelector(".vhsStack");
-const content = document.querySelectorAll("article[data-type='content']");
+const content = document.querySelectorAll(".wrapper");
 
-window.addEventListener("scroll", () => {
+const mobileView = window.matchMedia("(width < 700px)");
+
+function getScrollSettings() {
+    if (mobileView.matches) {
+        return {
+            catY: 60,
+            textY: 14,
+            tapeStart: -20,
+            tapeEnd: 0,
+            contentStart: -18,
+            contentEnd: 0
+        };
+    }
+
+    return {
+        catY: 80,
+        textY: 20,
+        tapeStart: -35,
+        tapeEnd: 8.5,
+        contentStart: -35,
+        contentEnd: 0
+    };
+}
+
+function updateScrollAnimation() {
+    const settings = getScrollSettings();
     const rect = heroScroll.getBoundingClientRect();
     const scrollLength = heroScroll.offsetHeight - window.innerHeight;
 
@@ -25,21 +50,22 @@ window.addEventListener("scroll", () => {
 
     cat.style.transform = `
         translateX(-50%)
-        translateY(${progress * 80}vh)
+        translateY(${progress * settings.catY}vh)
         rotate(${progress * 8}deg)
     `;
 
     cat.style.opacity = 1 - progress;
+    label.style.opacity = 1 - progress;
 
     const tapeProgress = Math.max(0, (progress - 0.7) / 0.3);
     const eased = 1 - Math.pow(1 - tapeProgress, 3);
 
-    tape.style.translate = `0 ${-35 + eased * 43.5}vh`;
+    tape.style.translate = `0 ${settings.tapeStart + eased * (settings.tapeEnd - settings.tapeStart)}vh`;
     tape.style.rotate = `${-3 + eased * 3}deg`;
     tape.style.opacity = tapeProgress;
 
     content.forEach((item) => {
-        item.style.translate = `0 ${-35 + eased * 35}vh`;
+        item.style.translate = `0 ${settings.contentStart + eased * (settings.contentEnd - settings.contentStart)}vh`;
         item.style.rotate = `${-3 + eased * 3}deg`;
         item.style.opacity = tapeProgress;
     });
@@ -47,6 +73,10 @@ window.addEventListener("scroll", () => {
 
     text.forEach((item) => {
         item.style.opacity = 1 - progress;
-        item.style.translate = `0 ${progress * 20}vh`;
+        item.style.translate = `0 ${progress * settings.textY}vh`;
     });
-});
+}
+
+window.addEventListener("scroll", updateScrollAnimation);
+window.addEventListener("resize", updateScrollAnimation);
+updateScrollAnimation();
