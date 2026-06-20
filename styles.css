@@ -207,6 +207,7 @@ li {
     grid-template-columns: .1fr 1.9fr;
     grid-template-rows: 1fr 1fr;
     align-items: center;
+
     
     padding: clamp(1.5rem, 5vw, 5rem);
 }
@@ -486,7 +487,7 @@ article[data-id="sprint0"] {
 }
 
 .vhsStack {
-    width: min(52rem, 100%);
+    width: clamp(20rem, 25vw, 65rem);
 
     display: flex;
     flex-direction: column;
@@ -510,8 +511,8 @@ article[data-id="sprint0"] {
 
     /* :AFTER VARS */
     --content: "1";
-    --width: clamp(1rem, 4vw, 2rem);
-    --height: clamp(1rem, 4vw, 2rem);
+    --width: clamp(.8rem, 4vw, 2rem);
+    --height: clamp(.8rem, 4vw, 2rem);
     --radius: 50%;
     --background: black;
     --color: white;
@@ -603,8 +604,8 @@ article[data-id="sprint0"] {
     font-family: "Caveat", sans-serif;
 
     --content: "18+";
-    --width: clamp(1rem, 4vw, 2rem);
-    --height: clamp(1rem, 4vw, 2rem);
+    --width: clamp(.8rem, 4vw, 2rem);
+    --height: clamp(.8rem, 4vw, 2rem);
     --radius: 50%;
     --background: purple;
     --color: white;
@@ -822,364 +823,110 @@ article[data-id="sprint0"] {
 
 /* MEDIA */
 
-@media (width < 700px) {
+@media (width < 1400px) {
 
-    .contentScroll {
-        height: 185svh;
-    }
+article p {
+    font-size: 18px;
+}
 
-    .content {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto minmax(0, 1fr);
-        justify-items: center;
-        align-content: center;
-        gap: clamp(.75rem, 2vh, 1.25rem);
+.postit {
+    left: 31rem;
+}
 
-        height: 100svh;
-        padding: clamp(.75rem, 4vw, 1.25rem);
-    }
+.vhsSection {
+    margin-top: 22vh;
+}
+}
 
-    .textLeft {
-        position: absolute;
-        left: clamp(.85rem, 4vw, 1.5rem);
-        top: clamp(5.75rem, 12vh, 7rem);
+@media (width < 1200px) {
 
-        max-width: min(15rem, 60vw);
-        margin-top: 0;
-        font-size: clamp(2.5rem, 12vw, 4.5rem);
-    }
+article p {
+    font-size: 15px;
+}
 
-    .textRight {
-        position: absolute;
-        left: clamp(.85rem, 4vw, 1.5rem);
-        top: clamp(20rem, 55vh, 25rem);
+a:before {
+    font-size: 15px;
+    padding: .2em;
+}
 
-        grid-row: auto;
-        max-width: min(17rem, 70vw);
-        margin: 0;
-        font-size: clamp(2rem, 9vw, 3.5rem);
-    }
+.catGroup {
+    height: 80vh;
+}
 
-    .contentLabel {
-        position: fixed;
-        right: 5vw;
-        top: 5vw;
-        width: clamp(4.75rem, 18vw, 6rem);
-    }
+.textRight {
+    margin-top: 3vh;
+}
 
-    .catGroup {
-        left: 66%;
-        bottom: 0;
-        height: min(55svh, 88vw);
-    }
+.vhsSection {
+    margin-top: 25vh;
+}
 
-    .smoke {
-        left: 10%;
-        bottom: 11%;
-        scale: .65;
-        transform-origin: bottom left;
-    }
+.content:has(#sprint0:checked) .postit[data-id="sprint0"] {
+    display:none;
+}
 
+.content:has(#css:checked) .postit[data-id="CSS"] {
+    display:none;
+}
+}
+
+@media (width < 900px) {
+
+article p {
+    font-size: 14px;
+}
+
+article h2 {
+    font-size: 18px;
+}
+
+a:before {
+    font-size: 12px;
+    padding: .03em;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.vhsSection {
+    margin-top: 0;
+    transform: translateY(clamp(-14rem, 20vh, -22rem));
+}
+
+.vhsStack {
+    width: 15rem;
+}
+
+.tape {
+    height: 1.9em;
+}
+
+.wrapper {
+    width: 90%;
+}
+
+.catGroup {
+    height: clamp(70vh, 25vw, 80vh);
+}
+
+.textRight {
+    margin-top: -.2rem;
+    margin-right: clamp(10rem, 10vw, 30rem);
+    margin-left: clamp(5rem, 5vw, 10rem);
+}
+
+.wrapper {
+    height: 50vh;
+}
+}
+
+@media (max-width: 900px) and (min-width: 700px) {
     .vhsSection {
-        grid-column: 1;
-        grid-row: 1;
-
-        width: min(100%, 34rem);
-        margin-top: 0;
-        align-self: end;
-    }
-
-    .vhsStack {
-        width: 100%;
-        overflow: visible;
-        padding: .15rem;
-    }
-
-    .tape {
-        min-height: clamp(2rem, 5.5svh, 2.7rem);
-        font-size: clamp(1.05rem, 5vw, 1.65rem);
-    }
-
-    .tape:hover {
-        transform:
-            scale(1.01)
-            translate(.35rem);
-    }
-
-    .wrapper {
-        grid-column: 1;
-        grid-row: 2;
-
-        width: min(100%, 34rem);
-        height: min(53svh, 30rem);
-        max-height: 30rem;
-        aspect-ratio: auto;
-        border-width: clamp(.35rem, 2vw, .6rem);
-        border-radius: .65rem;
-        padding: .75rem;
-    }
-
-    .wrapper::before {
-        inset: .8rem 2.75rem .8rem .8rem;
-        border-width: .15rem;
-        border-radius: .45rem;
-    }
-
-    .wrapper::after {
-        top: .8rem;
-        right: .8rem;
-        bottom: .8rem;
-        width: 1.5rem;
-    }
-
-    article {
-        max-width: none;
-        overflow-y: hidden;
-        padding: 1rem 3rem 1rem 1rem;
-        font-size: clamp(.76rem, 3vw, .9rem);
-        line-height: 1.22;
-    }
-
-    article[data-id="sprint0"] {
-        max-width: none;
-    }
-
-    a {
-        font-size: .9rem;
-        margin-top: .75rem;
-    }
-
-    a::before {
-        font-size: 1rem;
-    }
-
-    .postit {
-        position: fixed;
-        top: auto;
-        bottom: .6rem;
-        left: .75rem;
-        right: .75rem;
-
-        width: auto;
-        max-height: none;
-        overflow: hidden;
-        padding: .45rem .55rem;
-
-        font-size: clamp(.58rem, 2.3vw, .78rem);
-        line-height: 1.05;
-    }
-
-    .content:has(#css:checked) .postit[data-id="CSS"] {
-        top: auto;
-    }
-
-    .content:has(#sprint0:checked) .wrapper,
-    .content:has(#css:checked) .wrapper {
-        height: min(39svh, 22rem);
-    }
-
-    .content:has(#sprint0:checked) article,
-    .content:has(#css:checked) article {
-        font-size: clamp(.68rem, 2.6vw, .82rem);
-        line-height: 1.12;
-    }
-}
-
-@media (600px <= width < 700px) {
-
-    .content {
-        grid-template-columns: minmax(13rem, .6fr) minmax(20rem, 1fr);
-        grid-template-rows: 1fr;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .vhsSection {
-        grid-column: 1;
-        grid-row: 1;
-        align-self: center;
-    }
-
-    .tape {
-        min-height: clamp(2.7rem, 7vh, 3.25rem);
-        font-size: clamp(1.1rem, 2.7vw, 1.6rem);
-    }
-
-    .wrapper {
-        grid-column: 2;
-        grid-row: 1;
-
-        width: 100%;
-        height: min(74svh, 32rem);
-    }
-
-    .postit {
-        left: auto;
-        right: .8rem;
-        bottom: -1.4rem;
-        width: min(9rem, 26vw);
-        font-size: clamp(.38rem, 1.2vw, .56rem);
-    }
-
-    .content:has(#sprint0:checked) .wrapper,
-    .content:has(#css:checked) .wrapper {
-        height: min(62svh, 28rem);
-    }
-
-    .content:has(#sprint0:checked) article,
-    .content:has(#css:checked) article {
-        padding-right: min(9rem, 45%);
-    }
-}
-
-@media (700px <= width <= 1200px) {
-
-    .content {
-        grid-template-columns: minmax(14rem, .7fr) minmax(26rem, 1.3fr);
-        gap: clamp(1rem, 3vw, 2rem);
-        padding: clamp(1.25rem, 4vw, 3rem);
-    }
-
-    .textLeft {
-        margin-top: 2rem;
-        font-size: clamp(3rem, 7vw, 5rem);
-    }
-
-    .textRight {
-        font-size: clamp(2.2rem, 4vw, 3.5rem);
-        padding-bottom: 10rem;
-    }
-
-    .catGroup {
-        left: 68%;
-        height: min(72vh, 78vw);
-    }
-
-    .vhsStack {
-        width: min(28rem, 100%);
-    }
-
-    .tape {
-        min-height: clamp(3rem, 6vw, 4.25rem);
-        font-size: clamp(1.25rem, 2.2vw, 2rem);
-    }
-
-    .wrapper {
-        width: min(46rem, 100%);
-    }
-
-    .postit {
-        left: auto;
-        right: 4.25rem;
-        top: .75rem;
-        width: min(9.5rem, 22vw);
-        max-height: none;
-        overflow: hidden;
-        font-size: clamp(.62rem, 1.1vw, .8rem);
-        line-height: 1.08;
-    }
-
-    .content:has(#css:checked) .postit[data-id="CSS"] {
-        top: .75rem;
-    }
-
-    .content:has(#sprint0:checked) article,
-    .content:has(#css:checked) article {
-        padding-right: clamp(10rem, 24vw, 13rem);
-        font-size: clamp(.9rem, 1.7vw, 1.05rem);
-        line-height: 1.18;
-    }
-}
-
-@media (430px <= width < 600px) {
-
-    .postit {
-        bottom: .05rem;
-    }
-
-    .content:has(#sprint0:checked) .wrapper,
-    .content:has(#css:checked) .wrapper {
-        height: 33svh;
-    }
-
-    .content:has(#sprint0:checked) article,
-    .content:has(#css:checked) article {
-        font-size: .56rem;
-        line-height: 1.05;
-    }
-}
-
-@media (width < 430px) {
-
-    .content {
-        gap: .6rem;
-        padding: .6rem;
-    }
-
-    .textLeft {
-        top: 5.5rem;
-        font-size: clamp(2.1rem, 11vw, 3rem);
-    }
-
-    .textRight {
-        top: 20rem;
-        font-size: clamp(1.65rem, 9vw, 2.5rem);
-    }
-
-    .catGroup {
-        left: 70%;
-        height: min(48svh, 92vw);
-    }
-
-    .vhsStack {
-        overflow: visible;
-    }
-
-    .tape {
-        min-height: clamp(1.45rem, 4.6svh, 2.05rem);
-        font-size: clamp(.92rem, 4.8vw, 1.25rem);
-    }
-
-    .wrapper {
-        height: 54svh;
-        max-height: none;
-        margin-top: .65rem;
-        padding: .55rem;
-    }
-
-    .wrapper::before {
-        inset: .6rem 2.2rem .6rem .6rem;
-    }
-
-    .wrapper::after {
-        top: .6rem;
-        right: .6rem;
-        bottom: .6rem;
-        width: 1.25rem;
-    }
-
-    article {
-        padding: .7rem 2.35rem .7rem .7rem;
-        font-size: clamp(.62rem, 2.8vw, .74rem);
-        line-height: 1.12;
-    }
-
-    .postit {
-        bottom: .4rem;
-        left: .55rem;
-        right: .55rem;
-        font-size: .48rem;
-    }
-
-    .content:has(#sprint0:checked) .wrapper,
-    .content:has(#css:checked) .wrapper {
-        height: 34svh;
-    }
-
-    .content:has(#sprint0:checked) article,
-    .content:has(#css:checked) article {
-        font-size: .4rem;
-        line-height: 1;
+        transform: translateY(-22rem);
     }
 }
 
