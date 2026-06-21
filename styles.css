@@ -182,8 +182,9 @@ input[type="radio"] {
     block-size: 1px;
 }
 
-section {
-    height: 100vh;
+ul {
+    margin-top: .5vw;
+    margin-bottom: .5vw;
 }
 
 li {
@@ -193,6 +194,11 @@ li {
 h2 {
     filter: drop-shadow(0 0 .02rem black);
 }
+
+.content {
+    height: 100vh;
+}
+
 /* CRT EFFECT */
 
 .crt {
@@ -814,7 +820,7 @@ article[data-id="sprint0"] {
 /* WEEKLY NERD */
 
 .content-section {
-    height: 100vh;
+    min-height: 100vh;
     width: min(70rem, 90vw);
     margin-inline: auto;
 
@@ -873,10 +879,6 @@ article[data-id="sprint0"] {
 .speaker {
     color: var(--kleur-goud);
     font-weight: bold;
-}
-
-.date {
-    opacity: .7;
 }
 
 .content-toggle-content {
