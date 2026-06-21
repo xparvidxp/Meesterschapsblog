@@ -7,6 +7,20 @@ random.forEach((item) => {
     // ruimte voor meer
 });
 
+// BUTTON 
+
+const themeButton = document.querySelector(".themeButton");
+
+themeButton.addEventListener("click", () => {
+    document.body.classList.toggle("cursed-theme");
+
+    if (document.body.classList.contains("cursed-theme")) {
+        themeButton.textContent = "Normal VHS";
+    } else {
+        themeButton.textContent = "Cursed VHS";
+    }
+});
+
 // SCROLL ANIMATIE
 
 const heroScroll = document.querySelector(".contentScroll");

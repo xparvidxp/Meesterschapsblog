@@ -10,6 +10,10 @@
     <div class="crt"></div>
     <main>
 
+    <button class="themeButton" type="button" tabindex="0">
+    Cursed VHS
+    </button>
+
 <div class="contentScroll">
     <section class="content">
 
@@ -27,16 +31,16 @@
         </div>
     </div>
 
-    <div class="textLeft" data-type="scroll">
+    <div class="textLeft" data-type="scroll" tabindex="0" aria-label="Minor Web Development and Design">
         <p class="contentText">Minor<br>Web Development & Design</p>
     </div>
 
-    <div class="textRight" data-type="scroll">
+    <div class="textRight" data-type="scroll" tabindex="0" aria-label="Meesterschapsblog">
         <p class="contentText">Meesterschapsblog</p>
     </div>
 
     <nav class="vhsSection">
-        <form class="vhsStack">
+        <div class="vhsStack">
             <input type="radio" name="project" id="hackathon">
             <label class="tape red random" for="hackathon">
                 <span>Hackathon</span>
@@ -71,23 +75,23 @@
             <label class="tape blue" for="meesterproef">
                 <span>Meesterproef</span>
             </label>
-        </form>
+        </div>
     </nav>
 
     <div class="wrapper">
 
         <div class="postit" data-id="sprint0">
-            <h2>Leerdoelen begin minor</h2>
+            <h2 tabindex="0">Leerdoelen begin minor</h2>
             <ul>
-                <li>
+                <li tabindex="0">
                 <strong>Leerdoel 1:</strong>
                 HTML Elementen beter kennen en begrijpen, zodat ik ze op de juiste momenten kan toepassen.
                 </li>
-                <li>
+                <li tabindex="0">
                 <strong>Leerdoel 2:</strong>
                 Javascript basis begrijpen en zelf scripts kunnen schrijven om de website interactief te maken.
                 </li>
-                <li>
+                <li tabindex="0">
                 <strong>Leerdoel 3:</strong>
                 3D assets kunnen gebruiken en kunnen animeren op websites.
                 </li>
@@ -95,11 +99,12 @@
         </div>
 
         <div class="postit" data-id="CSS">
-            <h2>NOTE:</h2>
-            <p>Werkt op het moment alleen in experimental browsers</p>
+            <h2 tabindex="0">NOTE:</h2>
+            <p tabindex="0">Werkt op het moment alleen in experimental browsers</p>
         </div>
 
-        <article 
+        <article
+            tabindex="0"
             data-type="content"
             data-id="hackathon"
         >
@@ -114,6 +119,7 @@
         </article>
 
         <article 
+        tabindex="0"
         data-type="content"
         data-id="sprint0"
         >
@@ -130,7 +136,8 @@
             <a href="https://xparvidxp.github.io/Sprint-0_webdev/" target="_blank" rel="noopener"></a>
         </article>
     
-        <article 
+        <article
+        tabindex="0"
         data-type="content"
         data-id="api"
         >
@@ -150,7 +157,8 @@
             </div>
         </article>
 
-        <article 
+        <article
+        tabindex="0"
         data-type="content"
         data-id="bt"
         >
@@ -170,7 +178,8 @@
             </div>
         </article>
 
-        <article 
+        <article
+            tabindex="0"
             data-type="content"
             data-id="css"
         >
@@ -190,7 +199,8 @@
             </div>
         </article>
         
-        <article 
+        <article
+            tabindex="0"
             data-type="content"
             data-id="hcd"
         >
@@ -210,7 +220,8 @@
             </div>
         </article>
 
-        <article 
+        <article
+            tabindex="0"
             data-type="content"
             data-id="meesterproef"
         >
@@ -233,16 +244,78 @@
     </section>
 </div>
 
+<section class="weeklyNerds">
 
+    <h2 tabindex="0">Reflectie</h2>
 
+    <details class="nerdTalk">
+        <summary>
+            <span class="speaker">Jeremy Keith</span>
+            <span class="date">Week 1</span>
+        </summary>
 
-        <!-- <article data="content">
-            <div>
-                    Weekly nerds. Hier komt de tekst
-            </div>
-        </article> -->
+        <div class="talkContent">
+            <p>
+                Hier komt je samenvatting van de spreker.
+                Dit mag gerust meerdere alinea's lang zijn.
+            </p>
+
+            <p>
+                Belangrijk inzicht:
+                Progressive Enhancement zorgt ervoor dat websites
+                voor iedereen bruikbaar blijven.
+            </p>
+        </div>
+    </details>
+
+    <details class="nerdTalk">
+        <summary>
+            <span class="speaker">Niels Leenheer</span>
+            <span class="date">Week 2</span>
+        </summary>
+
+        <div class="talkContent">
+            <p>
+                Samenvatting...
+            </p>
+        </div>
+    </details>
+
+</section>
+
+<section class="weeklyNerds">
+
+    <h2 tabindex="0">Weekly Nerds</h2>
+
+    <details class="nerdTalk">
+        <summary>
+            <span class="speaker">Reflectie begin</span>
+            <span class="date"></span>
+        </summary>
+
+        <div class="talkContent">
+            <p>
+            </p>
+
+            <p>
+            </p>
+        </div>
+    </details>
+
+    <details class="nerdTalk">
+        <summary>
+            <span class="speaker">Reflectie midden</span>
+            <span class="date"></span>
+        </summary>
+
+        <div class="talkContent">
+            <p>
+            </p>
+        </div>
+    </details>
 
     </main>
+
 <script type="module" src="js/script.js"></script>
 </body>
 
