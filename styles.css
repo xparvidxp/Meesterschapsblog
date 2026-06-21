@@ -1,269 +1,1548 @@
+@font-face {
+    font-family: "Oswald";
+    src: url("./assets/Oswald-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Permanent Marker";
+    src: url("https://fonts.gstatic.com/s/permanentmarker/v16/Fh4uPib9Iyv2ucM6pGQMWimMp004G0uXmA.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Caveat";
+    src: url("https://fonts.gstatic.com/s/caveat/v18/WnznHAc5bAfYB2QRah7pcpNvOx-pjRV6eIWpVQ.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Anton";
+    src: url("https://fonts.gstatic.com/s/anton/v25/1Ptgg87LROyAm3Kz-C8CSKlv.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Archivo Black";
+    src: url("https://fonts.gstatic.com/s/archivoblack/v21/HTxqL289NzCGg4MzN6KJ7eW6OYs.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Audiowide";
+    src: url("https://fonts.gstatic.com/s/audiowide/v20/l7gdbjpo0cum0ckerWCdmA_OIxo.woff2") format("woff2");
+    font-display: swap;
+}
+
+
+:root {
+    --kleur-wit: #fff;
+    --kleur-zwart: #000;
+    --kleur-bijna-zwart: #111;
+    --kleur-donkerblauw: #111a33;
+    --kleur-tv-donker: #2b1b11;
+    --kleur-hout-donker: #3f2919;
+    --kleur-hout: #5b4029;
+    --kleur-bruin-donker: #3a3428;
+    --kleur-link-tekst: #3e2b1c;
+    --kleur-papier: #efe2bd;
+    --kleur-papier-licht: #f3e7c6;
+    --kleur-papier-knop: #d8d0b6;
+    --kleur-papier-knop-donker: #b9af92;
+    --kleur-papier-knop-hover: #e8e0c6;
+    --kleur-papier-knop-hover-donker: #c8bea1;
+    --kleur-goud: #d3aa5a;
+    --kleur-postit: #f6e27a;
+    --kleur-rood: #d94a4a;
+    --kleur-blauw: #3859b8;
+    --kleur-roze: #d83d86;
+    --kleur-paars: #7d38b8;
+    --kleur-oranje: #df7644;
+    --kleur-geel: #e2b85a;
+    --kleur-turquoise: #49bdb6;
+    --kleur-cursed-roze: #ff3b8d;
+    --kleur-cursed-roze-donker: #2b001a;
+    --kleur-cursed-tekst: #ff88bd;
+    --kleur-cursed-achtergrond: #220011;
+    --kleur-cursed-achtergrond-midden: #3a001f;
+    --kleur-achtergrond-lucht: #78bfd1;
+    --kleur-achtergrond-lucht-donker: #67b5ca;
+    --kleur-donkergrijs: #222;
+    --kleur-tape-label: #f2e7c7;
+    --kleur-tape-donker: #06102a;
+    --kleur-tape-paars: #713a89;
+    --kleur-tape-roze-donker: #c54867;
+    --kleur-tape-roze: #d54873;
+    --kleur-cursed-achtergrond-donker: #160018;
+    --kleur-cursed-achtergrond-zwart: #020202;
+    --kleur-cursed-tv: #1b0614;
+    --kleur-cursed-zwart: #050505;
+    --kleur-cursed-grijs: #d8d8d8;
+    --kleur-cursed-rood: #ff0066;
+    --kleur-cursed-postit: #32001f;
+    --crt-red: rgba(255, 0, 0, .18);
+    --crt-green: rgba(0, 255, 0, .12);
+    --crt-blue: rgba(0, 0, 255, .18);
+}
+
 * {
-    scroll-snap-type: y proximity;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+
+    background:
+        radial-gradient(circle at 25% 20%, rgba(255, 230, 120, .15), transparent 35%),
+        radial-gradient(circle at 70% 40%, rgba(255,255,255,.08), transparent 50%),
+        linear-gradient(180deg, var(--kleur-achtergrond-lucht), var(--kleur-achtergrond-lucht-donker));
+    background-attachment: fixed;
 }
 
 body {
-    padding: 0;
-    margin: 0;
-
-    --bg: black;
-    --text: white;
-    --bg-grey: rgb(12, 12, 12);
-    --accent: white;
-    --hover: rgb(194, 194, 194);
-
-    font-family: "Revx Neue", sans-serif;
-    background-color: var(--bg);
-    color: var(--text);
+    min-height: 100%;
+    overflow-x: hidden;
+    background: transparent;
 }
 
-ul {
-    position: relative;
-    z-index: 2;
+article {
+display: none;
+font-family: Oswald;
+font-size: large;
+max-width: 82ch;
 
-    margin: 0;
-    padding: 5vh 0 70vh 0;
+position: relative;
+z-index: 1;
 
-    list-style: none;
-    background-color: var(--bg-grey);
+height: 100%;
+overflow-y: auto;
+
+padding: clamp(1rem, 2vw, 2rem);
+padding-right: clamp(4rem, 7vw, 6.5rem);
+
+color: var(--kleur-goud);
+text-shadow:
+    1px 1px 0 rgba(0,0,0,.8),
+    0 0 .5rem rgba(211,170,90,.25);
 }
 
-ul::before {
-    content: "";
-    position: absolute;
+a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    width: 10px;
-    top: 0;
-    bottom: 0;
-    left: 0;
+    margin-top: 1vw;
+    padding: .5em 1em;
 
-    background-color: var(--accent);
+    background:
+        linear-gradient(
+            180deg,
+            var(--kleur-papier-knop),
+            var(--kleur-papier-knop-donker)
+        );
+
+    border:
+        clamp(1px, .15vw, 3px)
+        solid
+        var(--kleur-bruin-donker);
+
+    border-radius: .2rem;
+
+    color: var(--kleur-donkerblauw);
+    font-family: "Oswald", sans-serif;
+    font-size: clamp(.9rem, 1.2vw, 1.2rem);
+    text-transform: uppercase;
+    text-decoration: none;
+
+    box-shadow:
+        inset .1rem .1rem .2rem rgba(255,255,255,.5),
+        inset -.1rem -.1rem .2rem rgba(0,0,0,.2),
+        0 .15rem .3rem rgba(0,0,0,.3);
+
+    transition: .15s;
+
 }
 
-li {
-    padding: .5rem;
+a:hover {
+    background:
+        linear-gradient(
+            180deg,
+            var(--kleur-papier-knop-hover),
+            var(--kleur-papier-knop-hover-donker)
+        );
 
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-}
-
-label {
-    cursor: pointer;
-
-    display: block;
-    position: relative;
-
-    width: 40vw;
-    padding: 1rem;
-
-    font-size: clamp(1.5rem, 2vw, 3.5rem);
-
-
-&&::after {
-    content: "";
-    position: absolute;
-
-    left: 1rem;
-    bottom: 0;
-
-    width: 15%;
-    height: 2px;
-
-    background-color: var(--text);
-    transition: width .3s ease;
-}
-
-&&:hover::after,
-input[type="radio"]:checked + label::after {
-    width: 25%;
-}
-
-&&:hover {
-    color: var(--hover);
-}
+    transform: scale(1.03);
 }
 
 input[type="radio"] {
-    display:none;
+    position: absolute;
+    opacity: 0;
+    inline-size: 1px;
+    block-size: 1px;
 }
 
-input[type="radio"]:checked + label + .content {
-    display: block;
+ul {
+    margin-top: .5vw;
+    margin-bottom: .5vw;
 }
 
-input[type="radio"]:checked + label {
-    color: var(--hover);
+li {
+    list-style: none;
+}
+
+h2 {
+    filter: drop-shadow(0 0 .02rem black);
 }
 
 .content {
-    display: none;
-    position: absolute;
-    left: 20vw;
-    top: 5vw;
-    width: 35vw;
-
-&&::before {
-    content: "";
-    position: absolute;
-
-    left: -10px;
-    top: 0;
-    bottom: 0;
-
-    width: 2px;
-    background-color: white;
-}
+    height: 100vh;
 }
 
-.hero {
-    display: flex;
+/* CRT EFFECT */
 
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    overflow: hidden;
+.crt {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
 
-    height: 90vh;
-    padding-bottom: 10vh;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 55%,
+        rgba(0, 0, 0, .15) 75%,
+        rgba(0, 0, 0, .45) 100%
+    );
 
-    background: var(--bg);
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: .25;
+        mix-blend-mode: overlay;
+    }
+
+    &::before {
+        background: repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,.12) 0px,
+            rgba(255,255,255,.12) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+    }
+
+    &::after {
+        background: repeating-linear-gradient(
+            to right,
+            var(--crt-red) 0px,
+            var(--crt-green) 1px,
+            var(--crt-blue) 2px,
+            transparent 3px
+        );
+    }
 }
 
-.textLeft,
-.textRight {
-    position: absolute;
+/* THEME BUTTON */
 
-    font-size: clamp(1.5rem, 2.3vw, 3.5rem);
-    line-height: 1.1;
-    letter-spacing: 0.15em;
+.theme-button {
+    position: fixed;
+
+    top: 1vw;
+    left: 2vw;
+
+    z-index: 10000;
+
+    padding: .6em 1em;
+
+    background: var(--kleur-bijna-zwart);
+    color: var(--kleur-goud);
+
+    border: .15rem solid var(--kleur-goud);
+    border-radius: .25rem;
+
+    font-family: "Oswald", sans-serif;
+    font-size: 1rem;
     text-transform: uppercase;
 
+    cursor: pointer;
+
+    box-shadow:
+        0 0 .5rem rgba(0,0,0,.6),
+        inset 0 0 .5rem rgba(211,170,90,.2);
+}
+
+.theme-button:hover {
+    transform: scale(1.05);
+}
+
+/* CONTENT */
+
+.content-scroll {
+    height: 220vh;
+}
+
+.content {
+    position: sticky;
+    top: 0;
     overflow: hidden;
-    white-space: nowrap;
 
-    animation: typing 1.3s steps(32, start);
+    display: grid;
+    grid-template-columns: .1fr 1.9fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+
+    
+    padding: clamp(1.5rem, 5vw, 5rem);
 }
 
-.textLeft {
-    left: 15%;
-    top: 30%;
-}
+.content-label {
+    position: fixed;
+    right: 2vw;
+    top: 2vw;
 
-.textRight {
-    right: 16%;
-    top: 40%;
+    width: clamp(5rem, 12vw, 12rem);
+    z-index: 2;
 
-    animation-fill-mode: backwards;
-    animation-delay: 1.3s;
-}
+    filter: drop-shadow(0 0 .05rem black);
 
-.heroText {
-    display: block;
-}
-
-.scrollIndicator {
     opacity: 0;
+    animation: printIn 1s ease-out .5s forwards;
+}
+
+/* CAT */
+
+.cat-group {
+    position: absolute;
+    left: 60%;
+    bottom: 0vh;
+
+    height: min(85vh, 90vw);
+    z-index: 3;
+
+    transform: translateX(-50%);
+    will-change: transform, opacity;
+}
+
+.content-cat {
+    height: 100%;
+    display: block;
+
+    filter:
+        brightness(.8)
+        contrast(.85)
+        drop-shadow(0 0 .05rem black);
+
+    opacity: 0;
+    animation: printIn 2s ease-out forwards;
+}
+
+/* TEXT */
+
+.content-text {
+    font-family: "Oswald", sans-serif;
+    line-height: .9;
+    color: var(--kleur-goud);
+
+    text-shadow:
+        1px 1px 0 rgba(0,0,0,.25),
+        -1px 0 0 rgba(255,255,255,.08);
+    
+    opacity: 0;
+    animation: printIn 1s ease-out forwards;
+}
+
+.text-left {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+
+    z-index: 2;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    rotate: -.5deg;    
+}
+
+.text-right {
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: 5vh;
+    text-align: left;
+
+    z-index: 2;
+    font-size: clamp(3rem, 5vw, 7.5rem);
+    rotate: .8deg;
+}
+
+/* TV */
+
+.tv {
+    position: relative;
+
+    grid-column: 2;
+    grid-row: 1 / 3;
+
+    width: min(58rem, 95%);
+    aspect-ratio: 4 / 3;
+
+    padding: clamp(1rem, 2vw, 2rem);
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--kleur-hout),
+            var(--kleur-hout-donker)
+        );
+
+    border:
+        clamp(.5rem, 1vw, 1rem)
+        solid
+        var(--kleur-tv-donker);
+
+    border-radius: 1rem;
+
+    box-shadow:
+        inset .2rem .2rem .5rem rgba(255,255,255,.15),
+        inset -.2rem -.2rem .5rem rgba(0,0,0,.4),
+        0 1rem 2rem rgba(0,0,0,.35);
+
+    z-index: 5;
+
+    opacity: 0;
+
+    &::before {
+        content: "";
+
+        position: absolute;
+
+        inset: 1.5rem 5rem 1.5rem 1.5rem;
+
+        border-radius: .75rem;
+
+        background:
+            radial-gradient(
+                ellipse at center,
+                rgba(150,180,200,.25),
+                rgba(0,0,0,.85)
+            );
+
+        border: .25rem solid var(--kleur-bijna-zwart);
+
+        box-shadow:
+            inset 0 0 3rem rgba(0,0,0,.8),
+            inset 0 0 1rem rgba(255,255,255,.08);
+    }
+
+&::after {
+    content: "";
+
+    position: absolute;
+
+    top: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+
+    width: 3rem;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            var(--kleur-donkergrijs) 0 .15rem,
+            transparent .15rem .4rem
+        );
+}
+}
+
+/* POSTIT */
+
+article[data-id="sprint0"] {
+    max-width: 60ch;
+}
+
+.postit {
+    display: none;
+    position: absolute;
+    width: clamp(12rem, 20vw, 18rem);
+    overflow: visible;
+
+    top: 1rem;
+    left: 35rem;
+
+    padding: 1rem;
+
+    background: var(--kleur-postit);
+    color: black;
+
+    border: 1px solid rgba(0,0,0,.15);
+
+    box-shadow:
+        .25rem .25rem .5rem rgba(0,0,0,.2);
+
+    rotate: -4deg;
+
+    font-family: "Caveat", sans-serif;
+
+    z-index: 20;
+
+    margin-inline-start: auto;
+    margin-block-end: -3rem;
+}
+
+.postit::before {
+    content: "";
+
+    display: block;
+
+    width: 4rem;
+    height: 1rem;
+
+    background: rgba(255,255,255,.35);
+
+    margin-inline: auto;
+    margin-block-start: -1.5rem;
+    margin-block-end: .5rem;
+
+    rotate: 3deg;
+}
+
+/* SMOKE */
+
+.smoke {
+    position: absolute;
+    left: 15%;
+    bottom: 14%;
+
+    width: 8rem;
+    height: 12rem;
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+.smoke span {
+    position: absolute;
+    bottom: 0;
+
+    width: 5rem;
+    height: 8rem;
+
+    background: linear-gradient(
+        to top,
+        rgba(255,255,255,.8),
+        transparent
+    );
+
+    border-radius: 50%;
+    filter: blur(4px);
+
+    opacity: 0;
+    animation: smokeRise 3s linear infinite;
+}
+
+.smoke span:nth-child(2) {
+    left: 1.5rem;
+    animation-delay: 1s;
+}
+
+.smoke span:nth-child(3) {
+    left: -.8rem;
+    animation-delay: 2s;
+}
+
+/* VHS TAPE */
+
+.random {
+    --rotate: 0deg;
+}
+
+.vhs-section {
+    grid-column: 1;
+    grid-row: 1;
+
+    justify-self: start;
+    align-self: center;
+
+    height: auto;
+    min-height: 0;
+    padding: 0;
+    margin-top: 10rem;
+
+    display: flex;
+    z-index: 4;
+}
+
+.vhs-stack {
+    width: clamp(20rem, 25vw, 65rem);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    opacity: 0;
+}
+
+.tape {
+    transition: .2s;
+
+    /* :BEFORE VARS */
+    --strip-width: clamp(2rem, 7vw, 5.5rem);
+    --strip:
+        linear-gradient(
+            90deg,
+            var(--tape-dark) 0 35%,
+            var(--kleur-tape-label) 35% 70%,
+            var(--tape-dark) 70% 100%
+        );
+
+    /* :AFTER VARS */
+    --content: "1";
+    --width: clamp(.8rem, 4vw, 2rem);
+    --height: clamp(.8rem, 4vw, 2rem);
+    --radius: 50%;
+    --background: black;
+    --color: white;
+    --border: none;
+    --font-size: clamp(.6rem, 1vw, .9rem);
+    --rotate: 0deg;
+    --inline: 2rem;
+    --block: .5rem;
+
+    /* TAPE VARS */
+    --tape-dark: var(--kleur-tape-donker);
+    --tape-paper: var(--kleur-papier);
+    --tape-accent: var(--kleur-rood);
+
+    display: flex;
+    
+    min-height: clamp(3.5rem, 3vw, 5.5rem);
+    width: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--tape-dark) 0 12%,
+            var(--tape-paper) 12% 90%,
+            var(--tape-dark) 90% 100%
+        );
+
+    border: .18rem solid rgba(240, 232, 200, 1);
+    border-radius: .25rem;
+
+    box-shadow:
+        inset 0 0 .6rem rgba(0,0,0,.4),
+        0 .25rem .5rem rgba(0,0,0,.35);
+
+    font-family: "Oswald", sans-serif;
+    font-size: clamp(1.6rem, 2vw, 4rem);
+    line-height: .9;
+    color: var(--tape-accent);
+
+    cursor: pointer;
+
+
+    &::before {
+        content: "";
+        
+        width: var(--strip-width);
+        height: 100%;
+
+        background: var(--strip);
+    }
+
+    &::after {
+        content: var(--content);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: var(--width);
+        height: var(--height);
+        padding: .2vw;
+
+        border-radius: var(--radius);
+
+        background: var(--background);
+        color: var(--color);
+        border: var(--border);
+
+        font-size: var(--font-size);
+
+        transform: rotate(var(--rotate));
+        margin-inline-start: var(--inline, auto);
+        margin-block-start: var(--block, auto);
+
+        font-family: arial;
+    }
+
+    span {
+        padding-inline: clamp(.5em, 1vw, .5em);
+        padding-block: clamp(.5em, 1vw, .5em);
+    }
+}
+
+/* DECORATIONS */
+
+.red {
+    --tape-accent: var(--kleur-rood);
+    width: 99%;
+    font-family: "Caveat", sans-serif;
+
+    --content: "18+";
+    --width: clamp(.8rem, 4vw, 2rem);
+    --height: clamp(.8rem, 4vw, 2rem);
+    --radius: 50%;
+    --background: purple;
+    --color: white;
+    --border: none;
+    --font-size: clamp(.6rem, 1vw, .9rem);
+    --inline: clamp(0rem, -1rem, -2rem);
+    --block: clamp(.25rem, 1vw, 1rem);
+
+    --strip-width: clamp(2.5rem, 8vw, 6rem);
+    --strip:
+        linear-gradient(
+            90deg,
+            var(--kleur-tape-donker) 0 18%,
+            var(--kleur-tape-paars) 18% 38%,
+            var(--kleur-tape-roze-donker) 38% 58%,
+            var(--kleur-oranje) 58% 78%,
+            var(--kleur-geel) 78% 100%
+        );
+}
+
+.blue {
+    --tape-accent: var(--kleur-blauw);
+    width: 96%;
+    font-family: "Permanent Marker", sans-serif;
+
+    --content: "VHS";
+    --width: clamp(1rem, 5vw, 2rem);
+    --height: clamp(.75rem, 2vw, 1rem);
+    --radius: 0%;
+    --background: none;
+    --color: white;
+    --border: white solid clamp(1px, 0.15vw, 1.1px);
+    --font-size: clamp(.4rem, 1.2vw, 1rem);
+    --rotate: -90deg;
+    --inline: auto;
+    --block: clamp(1.1rem, 2.5vw, .5rem);
+
+    --strip-width: clamp(3rem, 8vw, 6rem);
+    --strip:
+        linear-gradient(
+            to bottom,
+            var(--kleur-turquoise) 0 45%,
+            var(--kleur-papier-licht) 45% 60%,
+            var(--kleur-tape-roze) 60% 100%
+        );
+}
+
+.pink {
+    --tape-accent: var(--kleur-roze);
+    width: 98%;
+    font-family: "Anton", sans-serif;
+
+    --content: "E";
+    --width: clamp(1rem, 2vw, 1.5rem);
+    --height: clamp(1rem, 2vw, 1.5rem);
+    --radius: 0%;
+    --background: black;
+    --color: white;
+    --border: white solid clamp(1px, 0.15vw, 3px);
+    --font-size: clamp(.4rem, 1vw, .9rem);
+    --block: clamp(.25rem, 1vw, 1rem);
+
+
+    --strip-width: clamp(2rem, 6vw, 4rem);
+    --strip:
+        linear-gradient(
+            90deg,
+            var(--tape-dark) 0 20%,
+            var(--kleur-papier-licht) 20% 100%
+        );
+}
+
+.darkblue {
+    --tape-accent: var(--kleur-donkerblauw);
+    width: 97%;
+    font-family: "Archivo Black", sans-serif;
+
+    --content: "▶";
+    --width: clamp(1.2rem, 2vw, 2rem);
+    --height: clamp(1.2rem, 2vw, 2rem);
+    --radius: 0%;
+    --background: transparent;
+    --color: black;
+    --border: none;
+    --font-size: clamp(.6rem, 1.5vw, 1.5rem);
+
+    --rotate: 0deg;
+    --block: clamp(.25rem, 1vw, 1rem);
+
+    --strip-width: clamp(3rem, 9vw, 6rem);
+    --strip:
+        linear-gradient(
+            90deg,
+            var(--tape-dark) 0 75%,
+            var(--kleur-papier-licht) 75% 100%
+        );
+}
+
+.purple {
+    --tape-accent: var(--kleur-paars);
+    width: 100%;
+    font-family: "Audiowide", sans-serif;
+
+    --content: "SP";
+    --width: clamp(1.5rem, 4vw, 2rem);
+    --height: clamp(.8rem, 1.8vw, 1rem);
+    --radius: .2rem;
+    --background: var(--kleur-bijna-zwart);
+    --color: var(--kleur-paars);
+    --border: clamp(1px, 0.15vw, 3px) solid var(--kleur-paars);
+    --font-size: clamp(.6rem, 1vw, 1rem);
+
+    --rotate: 0deg;
+    --block: clamp(.25rem, 2vw, 1rem);
+
+    --strip-width: clamp(3rem, 8vw, 5.5rem);
+    --strip:
+        repeating-linear-gradient(
+            90deg,
+            var(--kleur-bijna-zwart) 0 .35rem,
+            var(--kleur-papier-licht) .35rem .7rem
+        );
+
+}
+
+/* WEEKLY NERD */
+
+.content-section {
+    min-height: 100vh;
+    width: min(70rem, 90vw);
+    margin-inline: auto;
+
+    padding: 2rem;
+
+    color: var(--kleur-goud);
+    font-family: Oswald;
+}
+
+.content-section h2 {
+    margin-bottom: 1rem;
+    font-size: clamp(2rem, 4vw, 4rem);
+}
+
+.content-toggle {
+    margin-bottom: 1rem;
+}
+
+.content-toggle summary {
+    list-style: none;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: center;
+
+    cursor: pointer;
+
+    padding: 1rem;
+
+    background-color:  var(--kleur-papier);
+
+    border: .15rem solid var(--kleur-papier-licht);
+
+    color: var(--kleur-donkerblauw);
+
+    font-size: 1.2rem;
+
+    box-shadow:
+        inset 0 0 .5rem rgba(0,0,0,.3),
+        0 .2rem .4rem rgba(0,0,0,.2);
+}
+
+.content-toggle summary::-webkit-details-marker {
+    display: none;
+}
+
+.content-toggle summary::after {
+    content: "▶";
+    transition: .2s;
+}
+
+.content-toggle[open] summary::after {
+    transform: rotate(90deg);
+}
+
+.speaker {
+    color: var(--kleur-goud);
+    font-weight: bold;
+}
+
+.content-toggle-content {
     padding: 1.5rem;
 
-    writing-mode: sideways-lr;
-    pointer-events: none;
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(150,180,200,.15),
+            rgba(0,0,0,.85)
+        );
 
-    animation: fadeIn 1s ease-out 3s forwards;
+    color: var(--kleur-papier-licht);
+    line-height: 1.55;
+    font-size: clamp(1rem, 1.2vw, 1.15rem);
+
+    border-inline:
+        .15rem solid var(--kleur-tv-donker);
+
+    border-bottom:
+        .15rem solid var(--kleur-tv-donker);
 }
 
-.scrollText {
-    --line-height: 5vh;
+.content-toggle-content h3 {
+    margin-block: 1.5rem .5rem;
+    color: var(--kleur-goud);
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    text-transform: uppercase;
+}
 
+.content-toggle-content h4 {
+    margin-block: 1.25rem .4rem;
+    color: var(--kleur-papier);
+    font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+}
+
+.content-toggle-content p {
+    max-width: 65ch;
+    margin-block: .75rem;
+    color: var(--kleur-papier-licht);
+}
+
+.content-toggle-content ul {
+    max-width: 65ch;
+    margin-block: .75rem 1rem;
+    padding-inline-start: 1.25rem;
+}
+
+.content-toggle-content li {
+    list-style: disc;
+    margin-block: .35rem;
+    color: var(--kleur-papier-licht);
+}
+
+.content-toggle-content code {
+    padding: .1em .35em;
+    border-radius: .2rem;
+    background: rgba(255, 255, 255, .12);
+    color: var(--kleur-goud);
+}
+
+.content-toggle-content dl {
+    max-width: 65ch;
+    margin-block: 1rem;
+}
+
+.content-toggle-content dt {
+    margin-block-start: .75rem;
+    color: var(--kleur-goud);
+    font-weight: bold;
+}
+
+.content-toggle-content dd {
+    margin-inline-start: 1rem;
+    color: var(--kleur-papier-licht);
+}
+
+/* STATES */
+
+.tape:hover {
+    outline: .2rem solid grey;
+    transform:
+        scale(102%)
+        translate(1rem);
+}
+
+.vhs-stack input[type="radio"]:checked + .tape {
+    background:
+        linear-gradient(
+            90deg,
+            var(--tape-dark) 0 12%,
+            var(--tape-paper) 12% 90%,
+            var(--tape-dark) 90% 100%
+        );
+
+    outline: .2rem solid var(--kleur-goud);
+}
+
+.content:has(#hackathon:checked) article[data-id="hackathon"] {
     display: block;
+}
+
+.content:has(#sprint0:checked) article[data-id="sprint0"] {
+    display: block;
+}
+
+.content:has(#sprint0:checked) .postit[data-id="sprint0"] {
+    display:block;
+}
+
+.content:has(#css:checked) .postit[data-id="css"] {
+    display:block;
+    top: -.1rem;
+}
+
+.content:has(#api:checked) article[data-id="api"] {
+    display: block;
+}
+
+.content:has(#bt:checked) article[data-id="bt"] {
+    display: block;
+}
+
+.content:has(#css:checked) article[data-id="css"] {
+    display: block;
+}
+
+.content:has(#hcd:checked) article[data-id="hcd"] {
+    display: block;
+}
+
+.content:has(#meesterproef:checked) article[data-id="meesterproef"] {
+    display: block;
+}
+
+body.cursed-theme :focus-visible {
+    outline: .2rem solid var(--kleur-cursed-roze);
+    outline-offset: .25rem;
+
+    box-shadow:
+        0 0 .75rem rgba(255,0,90,.6);
+}
+
+:focus-visible {
+    outline: .2rem solid var(--kleur-goud);
+    outline-offset: .25rem;
+
+    box-shadow:
+        0 0 .75rem rgba(211,170,90,.5);
+}
+
+body.cursed-theme .content-section {
     position: relative;
+
+    margin-block: 4rem;
+    padding: clamp(1.5rem, 4vw, 3rem);
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,.04) 0 2px,
+            transparent 2px 6px
+        ),
+        radial-gradient(
+            ellipse at center,
+            rgba(255,0,90,.18),
+            rgba(0,0,0,.9) 70%
+        );
+
+    border: .15rem solid var(--kleur-cursed-roze);
+    border-radius: .75rem;
+
+    box-shadow:
+        0 0 2rem rgba(255,0,90,.35),
+        inset 0 0 2rem rgba(0,0,0,.75);
 }
 
-.scrollText::before {
-    content: "";
-    position: absolute;
+body.cursed-theme .content-section h2 {
+    color: var(--kleur-cursed-roze);
 
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
+    text-shadow:
+        1px 0 red,
+        -1px 0 cyan,
+        0 0 .8rem rgba(255,0,90,.8);
 
-    left: 50%;
-    top: calc(100% + 20px + var(--line-height) + 8px);
-
-    background: var(--accent);
-    transform: translateX(-50%);
-
-    animation: Blink 1.5s ease-in-out 4s infinite;
+    text-transform: uppercase;
 }
 
-.scrollText::after {
-    content: "";
-    position: absolute;
-
-    width: 1px;
-    height: var(--line-height);
-
-    left: 50%;
-    top: calc(100% + 20px);
-
-    background: white;
-    transform: translateX(-50%);
+body.cursed-theme .content-toggle {
+    border: .1rem solid rgba(255,0,90,.35);
+    box-shadow: 0 0 .8rem rgba(255,0,90,.2);
 }
 
-/* 3D */
+body.cursed-theme .content-toggle summary {
+    background:
+        linear-gradient(
+            90deg,
+            var(--kleur-cursed-zwart),
+            var(--kleur-cursed-achtergrond-midden),
+            var(--kleur-cursed-zwart)
+        );
 
-#container3D canvas {
-    width: 100vw !important;
-    height: 100vh !important;
-    position: absolute;
-    top: 0;
-    left: 0;
+    color: var(--kleur-cursed-tekst);
+    border-color: var(--kleur-cursed-roze);
+
+    text-shadow:
+        1px 0 red,
+        -1px 0 cyan;
+
+    box-shadow:
+        inset 0 0 .8rem rgba(255,0,90,.25),
+        0 .25rem .8rem rgba(0,0,0,.45);
+}
+
+body.cursed-theme .content-toggle summary::after {
+    color: var(--kleur-cursed-roze);
+    text-shadow: 0 0 .6rem var(--kleur-cursed-roze);
+}
+
+body.cursed-theme .content-toggle-content {
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,.035) 0 1px,
+            transparent 1px 5px
+        ),
+        radial-gradient(
+            ellipse at top,
+            rgba(255,0,90,.16),
+            rgba(0,0,0,.88)
+        );
+
+    color: var(--kleur-cursed-tekst);
+
+    border-inline: .15rem solid var(--kleur-cursed-roze-donker);
+    border-bottom: .15rem solid var(--kleur-cursed-roze-donker);
+
+    box-shadow:
+        inset 0 0 1.5rem rgba(0,0,0,.8);
+}
+
+body.cursed-theme .content-toggle-content h3,
+body.cursed-theme .content-toggle-content dt {
+    color: var(--kleur-cursed-roze);
+    text-shadow:
+        1px 0 red,
+        -1px 0 cyan,
+        0 0 .6rem rgba(255,0,90,.7);
+}
+
+body.cursed-theme .content-toggle-content h4 {
+    color: var(--kleur-cursed-tekst);
+}
+
+body.cursed-theme .content-toggle-content p,
+body.cursed-theme .content-toggle-content li,
+body.cursed-theme .content-toggle-content dd {
+    color: var(--kleur-cursed-tekst);
+}
+
+body.cursed-theme .content-toggle-content code {
+    background: rgba(255,0,90,.18);
+    color: var(--kleur-cursed-roze);
+    border: 1px solid rgba(255,0,90,.35);
+}
+
+body.cursed-theme .content-label {
+    filter:
+        hue-rotate(-35deg)
+        saturate(1.8)
+        contrast(1.3)
+        drop-shadow(0 0 .75rem var(--kleur-cursed-roze));
+
+    animation:
+        printIn 1s ease-out .5s forwards,
+        label-glitch .35s infinite steps(2);
 }
 
 /* ANIMATIONS */
 
-@keyframes typing {
-    from {
-        clip-path: inset(0 100% 0 0);
-    }
-
-    to {
-        clip-path: inset(0 0 0 0);
-    }
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes Blink {
-    0%, 100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-    }
-}
-
-@keyframes openText {
+@keyframes printIn {
     from {
         opacity: 0;
-        transform: translateY(-1rem);
+        transform: translateY(2rem);
+        filter: blur(8px);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
+        filter: blur(0);
     }
 }
 
-/* FONT */
+@keyframes smokeRise {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(.5);
+    }
 
-@font-face {
-    font-family: "Revx Neue";
-    src: url("/Assets/Revx Neue Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
+    20% {
+        opacity: .85;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-9rem) translateX(-2rem) scale(1.8) rotate(25deg);
+    }
 }
+
+/* THEME */
+
+body.cursed-theme .content-scroll,
+body.cursed-theme .content-section {
+    filter: contrast(1.25) saturate(.65);
+}
+
+html:has(body.cursed-theme) {
+    background:
+        radial-gradient(circle at 50% 40%, rgba(255, 0, 90, .25), transparent 35%),
+        radial-gradient(circle at 20% 20%, rgba(0, 255, 255, .12), transparent 30%),
+        linear-gradient(180deg, var(--kleur-cursed-achtergrond-donker), var(--kleur-cursed-achtergrond-zwart));
+    background-attachment: fixed;
+}
+
+body.cursed-theme .content-text {
+    color: var(--kleur-cursed-roze);
+    text-shadow:
+        2px 0 red,
+        -2px 0 cyan,
+        0 0 1rem var(--kleur-cursed-roze);
+    animation:
+        printIn 1s ease-out forwards,
+        textGlitch .18s infinite steps(2);
+}
+
+body.cursed-theme .tv {
+    transform: rotate(-1deg);
+    background:
+        linear-gradient(
+            145deg,
+            var(--kleur-cursed-tv),
+            var(--kleur-cursed-zwart)
+        );
+
+    border-color: var(--kleur-cursed-roze-donker);
+
+    box-shadow:
+        0 0 2rem rgba(255, 0, 90, .7),
+        inset .2rem .2rem .5rem rgba(255,255,255,.08),
+        inset -.2rem -.2rem .8rem rgba(0,0,0,.8);
+}
+
+body.cursed-theme .tv::before {
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,.08) 0 2px,
+            transparent 2px 6px
+        ),
+        radial-gradient(
+            ellipse at center,
+            rgba(255,0,90,.25),
+            rgba(0,0,0,.9)
+        );
+}
+
+body.cursed-theme .tv::after {
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            var(--kleur-cursed-rood) 0 .15rem,
+            transparent .15rem .4rem
+        );
+}
+
+body.cursed-theme article {
+    color: var(--kleur-cursed-tekst);
+    text-shadow:
+        1px 0 red,
+        -1px 0 cyan,
+        0 0 .8rem rgba(255,0,90,.6);
+}
+
+body.cursed-theme .tape {
+    filter: grayscale(1) contrast(1.2);
+    background:
+        linear-gradient(
+            90deg,
+            var(--kleur-cursed-zwart) 0 12%,
+            var(--kleur-cursed-grijs) 12% 90%,
+            var(--kleur-cursed-zwart) 90% 100%
+        );
+}
+
+body.cursed-theme .tape:hover {
+    transform:
+        translateX(2rem)
+        rotate(-2deg)
+        scale(1.03);
+}
+
+body.cursed-theme .vhs-stack input[type="radio"]:checked + .tape {
+    outline: .2rem solid var(--kleur-cursed-roze);
+    box-shadow:
+        0 0 1rem rgba(255,0,90,.8),
+        inset 0 0 .6rem rgba(0,0,0,.6);
+}
+
+body.cursed-theme .cat-group {
+    filter:
+        grayscale(1)
+        contrast(1.4)
+        drop-shadow(0 0 1rem var(--kleur-cursed-rood));
+    animation: catGlitch .25s infinite steps(2);
+}
+
+body.cursed-theme .smoke span {
+    background: linear-gradient(
+        to top,
+        rgba(255,0,90,.8),
+        transparent
+    );
+}
+
+body.cursed-theme .crt {
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 45%,
+            rgba(255,0,90,.12) 70%,
+            rgba(0,0,0,.65) 100%
+        );
+}
+
+body.cursed-theme .crt::before {
+    opacity: .55;
+    animation: scanlines .12s infinite linear;
+}
+
+body.cursed-theme .crt::after {
+    opacity: .4;
+}
+
+body.cursed-theme a {
+    background:
+        linear-gradient(
+            180deg,
+            var(--kleur-cursed-roze),
+            var(--kleur-cursed-roze-donker)
+        );
+
+    color: white;
+    border-color: var(--kleur-cursed-tekst);
+
+    box-shadow:
+        0 0 .8rem rgba(255,0,90,.8),
+        inset 0 0 .5rem rgba(0,0,0,.6);
+}
+
+body.cursed-theme .theme-button {
+    color: var(--kleur-cursed-roze);
+    border-color: var(--kleur-cursed-roze);
+    box-shadow:
+        0 0 1rem rgba(255,0,90,.8),
+        inset 0 0 .5rem rgba(255,0,90,.3);
+}
+
+body.cursed-theme .postit {
+    background: var(--kleur-cursed-postit);
+    color: var(--kleur-cursed-tekst);
+}
+
+body.cursed-theme .content-toggle summary {
+    background:
+        linear-gradient(
+            90deg,
+            var(--kleur-cursed-achtergrond),
+            var(--kleur-cursed-achtergrond-midden),
+            var(--kleur-cursed-achtergrond)
+        );
+
+    color: var(--kleur-cursed-tekst);
+
+    border-color: var(--kleur-cursed-roze);
+}
+
+body.cursed-theme .content-toggle-content {
+    color: var(--kleur-cursed-tekst);
+}
+
+body.cursed-theme .content-section h2 {
+    color: var(--kleur-cursed-roze);
+
+    text-shadow:
+        1px 0 red,
+        -1px 0 cyan,
+        0 0 .8rem rgba(255, 0, 90, .6);
+}
+
+body.cursed-theme .speaker {
+    color: var(--kleur-cursed-roze);
+    font-weight: bold;
+}
+
+/* MEDIA */
+
+@media (width < 1400px) {
+
+article p {
+    font-size: 18px;
+}
+
+.postit {
+    left: 31rem;
+}
+
+.vhs-section {
+    margin-top: 22vh;
+}
+}
+
+@media (width < 1200px) {
+
+article p {
+    font-size: 15px;
+}
+
+.cat-group {
+    height: 80vh;
+}
+
+.text-right {
+    margin-top: 3vh;
+}
+
+.vhs-section {
+    margin-top: 25vh;
+}
+
+.content:has(#sprint0:checked) .postit[data-id="sprint0"] {
+    display:none;
+}
+
+.content:has(#css:checked) .postit[data-id="css"] {
+    display:none;
+}
+}
+
+@media (width < 900px) {
+
+article p {
+    font-size: 14px;
+}
+
+article h2 {
+    font-size: 18px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.vhs-section {
+    margin-top: 0;
+    transform: translateY(clamp(-14rem, 20vh, -22rem));
+}
+
+.vhs-stack {
+    width: 15rem;
+}
+
+.tape {
+    height: 1.9em;
+}
+
+.tv {
+    width: 90%;
+}
+
+.cat-group {
+    height: clamp(70vh, 25vw, 80vh);
+}
+
+.text-right {
+    margin-top: -.2rem;
+    margin-right: clamp(10rem, 10vw, 30rem);
+    margin-left: clamp(5rem, 5vw, 10rem);
+}
+
+.tv {
+    height: 50vh;
+}
+}
+
+@media (max-width: 900px) and (min-width: 700px) {
+    .vhs-section {
+        transform: translateY(-22rem);
+    }
+}
+
+/* Animaties */
+
+@keyframes scanlines {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(4px);
+    }
+}
+
+@keyframes textGlitch {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(2px);
+    }
+
+    100% {
+        transform: translateX(-2px);
+    }
+}
+
+@keyframes catGlitch {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    50% {
+        transform: translateX(-52%) skewX(3deg);
+    }
+
+    100% {
+        transform: translateX(-49%) skewX(-3deg);
+    }
+}
+
+@keyframes label-glitch {
+    0% {
+        transform: rotate(0deg) translateX(0);
+    }
+
+    25% {
+        transform: rotate(.5deg) translateX(1px);
+    }
+
+    50% {
+        transform: rotate(-.5deg) translateX(-1px);
+    }
+
+    100% {
+        transform: rotate(0deg) translateX(0);
+    }
+}
+
+/* Bronnen
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/filter-function/drop-shadow
+https://chatgpt.com/c/6a29d470-f7cc-83eb-94b3-e998e92eff82
+https://codepen.io/thisanimus/pen/OJpaqWz
+*/
