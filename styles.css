@@ -33,14 +33,61 @@
     font-display: swap;
 }
 
+
+:root {
+    --kleur-wit: #fff;
+    --kleur-zwart: #000;
+    --kleur-bijna-zwart: #111;
+    --kleur-donkerblauw: #111a33;
+    --kleur-tv-donker: #2b1b11;
+    --kleur-hout-donker: #3f2919;
+    --kleur-hout: #5b4029;
+    --kleur-bruin-donker: #3a3428;
+    --kleur-link-tekst: #3e2b1c;
+    --kleur-papier: #efe2bd;
+    --kleur-papier-licht: #f3e7c6;
+    --kleur-papier-knop: #d8d0b6;
+    --kleur-papier-knop-donker: #b9af92;
+    --kleur-papier-knop-hover: #e8e0c6;
+    --kleur-papier-knop-hover-donker: #c8bea1;
+    --kleur-goud: #d3aa5a;
+    --kleur-postit: #f6e27a;
+    --kleur-rood: #d94a4a;
+    --kleur-blauw: #3859b8;
+    --kleur-roze: #d83d86;
+    --kleur-paars: #7d38b8;
+    --kleur-oranje: #df7644;
+    --kleur-geel: #e2b85a;
+    --kleur-turquoise: #49bdb6;
+    --kleur-cursed-roze: #ff3b8d;
+    --kleur-cursed-roze-donker: #2b001a;
+    --kleur-cursed-tekst: #ff88bd;
+    --kleur-cursed-achtergrond: #220011;
+    --kleur-cursed-achtergrond-midden: #3a001f;
+    --kleur-achtergrond-lucht: #78bfd1;
+    --kleur-achtergrond-lucht-donker: #67b5ca;
+    --kleur-donkergrijs: #222;
+    --kleur-tape-label: #f2e7c7;
+    --kleur-tape-donker: #06102a;
+    --kleur-tape-paars: #713a89;
+    --kleur-tape-roze-donker: #c54867;
+    --kleur-tape-roze: #d54873;
+    --kleur-cursed-achtergrond-donker: #160018;
+    --kleur-cursed-achtergrond-zwart: #020202;
+    --kleur-cursed-tv: #1b0614;
+    --kleur-cursed-zwart: #050505;
+    --kleur-cursed-grijs: #d8d8d8;
+    --kleur-cursed-rood: #ff0066;
+    --kleur-cursed-postit: #32001f;
+    --crt-red: rgba(255, 0, 0, .18);
+    --crt-green: rgba(0, 255, 0, .12);
+    --crt-blue: rgba(0, 0, 255, .18);
+}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
-    --crt-red: rgba(255, 0, 0, .18);
-    --crt-green: rgba(0, 255, 0, .12);
-    --crt-blue: rgba(0, 0, 255, .18);
 }
 
 html {
@@ -49,7 +96,7 @@ html {
     background:
         radial-gradient(circle at 25% 20%, rgba(255, 230, 120, .15), transparent 35%),
         radial-gradient(circle at 70% 40%, rgba(255,255,255,.08), transparent 50%),
-        linear-gradient(180deg, #78bfd1, #67b5ca);
+        linear-gradient(180deg, var(--kleur-achtergrond-lucht), var(--kleur-achtergrond-lucht-donker));
     background-attachment: fixed;
 }
 
@@ -74,7 +121,7 @@ overflow-y: auto;
 padding: clamp(1rem, 2vw, 2rem);
 padding-right: clamp(4rem, 7vw, 6.5rem);
 
-color: #d3aa5a;
+color: var(--kleur-goud);
 text-shadow:
     1px 1px 0 rgba(0,0,0,.8),
     0 0 .5rem rgba(211,170,90,.25);
@@ -91,18 +138,18 @@ a {
     background:
         linear-gradient(
             180deg,
-            #d8d0b6,
-            #b9af92
+            var(--kleur-papier-knop),
+            var(--kleur-papier-knop-donker)
         );
 
     border:
         clamp(1px, .15vw, 3px)
         solid
-        #3a3428;
+        var(--kleur-bruin-donker);
 
     border-radius: .2rem;
 
-    color: #111a33;
+    color: var(--kleur-donkerblauw);
     font-family: "Oswald", sans-serif;
     font-size: clamp(.9rem, 1.2vw, 1.2rem);
     text-transform: uppercase;
@@ -115,20 +162,14 @@ a {
 
     transition: .15s;
 
-&:before {
-    content:"Bekijk project";
-    font-size: 15pt;
-
-    color:#3e2b1c;
-}
 }
 
 a:hover {
     background:
         linear-gradient(
             180deg,
-            #e8e0c6,
-            #c8bea1
+            var(--kleur-papier-knop-hover),
+            var(--kleur-papier-knop-hover-donker)
         );
 
     transform: scale(1.03);
@@ -200,18 +241,20 @@ h2 {
 
 /* THEME BUTTON */
 
-.themeButton {
+.theme-button {
     position: fixed;
+
+    top: 1vw;
     left: 2vw;
-    bottom: 2vw;
+
     z-index: 10000;
 
     padding: .6em 1em;
 
-    background: #111;
-    color: #d3aa5a;
+    background: var(--kleur-bijna-zwart);
+    color: var(--kleur-goud);
 
-    border: .15rem solid #d3aa5a;
+    border: .15rem solid var(--kleur-goud);
     border-radius: .25rem;
 
     font-family: "Oswald", sans-serif;
@@ -225,13 +268,13 @@ h2 {
         inset 0 0 .5rem rgba(211,170,90,.2);
 }
 
-.themeButton:hover {
+.theme-button:hover {
     transform: scale(1.05);
 }
 
 /* CONTENT */
 
-.contentScroll {
+.content-scroll {
     height: 220vh;
 }
 
@@ -249,7 +292,7 @@ h2 {
     padding: clamp(1.5rem, 5vw, 5rem);
 }
 
-.contentLabel {
+.content-label {
     position: fixed;
     right: 2vw;
     top: 2vw;
@@ -265,7 +308,7 @@ h2 {
 
 /* CAT */
 
-.catGroup {
+.cat-group {
     position: absolute;
     left: 60%;
     bottom: 0vh;
@@ -277,7 +320,7 @@ h2 {
     will-change: transform, opacity;
 }
 
-.contentCat {
+.content-cat {
     height: 100%;
     display: block;
 
@@ -292,10 +335,10 @@ h2 {
 
 /* TEXT */
 
-.contentText {
+.content-text {
     font-family: "Oswald", sans-serif;
     line-height: .9;
-    color: #d3aa5a;
+    color: var(--kleur-goud);
 
     text-shadow:
         1px 1px 0 rgba(0,0,0,.25),
@@ -305,7 +348,7 @@ h2 {
     animation: printIn 1s ease-out forwards;
 }
 
-.textLeft {
+.text-left {
     grid-column: 1;
     grid-row: 1;
     align-self: start;
@@ -315,7 +358,7 @@ h2 {
     rotate: -.5deg;    
 }
 
-.textRight {
+.text-right {
     grid-column: 1;
     grid-row: 2;
     margin-top: 5vh;
@@ -328,7 +371,7 @@ h2 {
 
 /* TV */
 
-.wrapper {
+.tv {
     position: relative;
 
     grid-column: 2;
@@ -342,14 +385,14 @@ h2 {
     background:
         linear-gradient(
             145deg,
-            #5b4029,
-            #3f2919
+            var(--kleur-hout),
+            var(--kleur-hout-donker)
         );
 
     border:
         clamp(.5rem, 1vw, 1rem)
         solid
-        #2b1b11;
+        var(--kleur-tv-donker);
 
     border-radius: 1rem;
 
@@ -378,7 +421,7 @@ h2 {
                 rgba(0,0,0,.85)
             );
 
-        border: .25rem solid #111;
+        border: .25rem solid var(--kleur-bijna-zwart);
 
         box-shadow:
             inset 0 0 3rem rgba(0,0,0,.8),
@@ -399,7 +442,7 @@ h2 {
     background:
         repeating-linear-gradient(
             to bottom,
-            #222 0 .15rem,
+            var(--kleur-donkergrijs) 0 .15rem,
             transparent .15rem .4rem
         );
 }
@@ -422,7 +465,7 @@ article[data-id="sprint0"] {
 
     padding: 1rem;
 
-    background: #f6e27a;
+    background: var(--kleur-postit);
     color: black;
 
     border: 1px solid rgba(0,0,0,.15);
@@ -507,7 +550,7 @@ article[data-id="sprint0"] {
     --rotate: 0deg;
 }
 
-.vhsSection {
+.vhs-section {
     grid-column: 1;
     grid-row: 1;
 
@@ -523,7 +566,7 @@ article[data-id="sprint0"] {
     z-index: 4;
 }
 
-.vhsStack {
+.vhs-stack {
     width: clamp(20rem, 25vw, 65rem);
 
     display: flex;
@@ -542,7 +585,7 @@ article[data-id="sprint0"] {
         linear-gradient(
             90deg,
             var(--tape-dark) 0 35%,
-            #f2e7c7 35% 70%,
+            var(--kleur-tape-label) 35% 70%,
             var(--tape-dark) 70% 100%
         );
 
@@ -560,13 +603,13 @@ article[data-id="sprint0"] {
     --block: .5rem;
 
     /* TAPE VARS */
-    --tape-dark: #06102a;
-    --tape-paper: #efe2bd;
-    --tape-accent: #d94a4a;
+    --tape-dark: var(--kleur-tape-donker);
+    --tape-paper: var(--kleur-papier);
+    --tape-accent: var(--kleur-rood);
 
     display: flex;
     
-    min-height: clamp(3.5rem, vw, 5.5rem);
+    min-height: clamp(3.5rem, 3vw, 5.5rem);
     width: 100%;
 
     background:
@@ -636,7 +679,7 @@ article[data-id="sprint0"] {
 /* DECORATIONS */
 
 .red {
-    --tape-accent: #d94a4a;
+    --tape-accent: var(--kleur-rood);
     width: 99%;
     font-family: "Caveat", sans-serif;
 
@@ -655,16 +698,16 @@ article[data-id="sprint0"] {
     --strip:
         linear-gradient(
             90deg,
-            #06102a 0 18%,
-            #713a89 18% 38%,
-            #c54867 38% 58%,
-            #df7644 58% 78%,
-            #e2b85a 78% 100%
+            var(--kleur-tape-donker) 0 18%,
+            var(--kleur-tape-paars) 18% 38%,
+            var(--kleur-tape-roze-donker) 38% 58%,
+            var(--kleur-oranje) 58% 78%,
+            var(--kleur-geel) 78% 100%
         );
 }
 
 .blue {
-    --tape-accent: #3859b8;
+    --tape-accent: var(--kleur-blauw);
     width: 96%;
     font-family: "Permanent Marker", sans-serif;
 
@@ -684,14 +727,14 @@ article[data-id="sprint0"] {
     --strip:
         linear-gradient(
             to bottom,
-            #49bdb6 0 45%,
-            #f3e7c6 45% 60%,
-            #d54873 60% 100%
+            var(--kleur-turquoise) 0 45%,
+            var(--kleur-papier-licht) 45% 60%,
+            var(--kleur-tape-roze) 60% 100%
         );
 }
 
 .pink {
-    --tape-accent: #d83d86;
+    --tape-accent: var(--kleur-roze);
     width: 98%;
     font-family: "Anton", sans-serif;
 
@@ -711,12 +754,12 @@ article[data-id="sprint0"] {
         linear-gradient(
             90deg,
             var(--tape-dark) 0 20%,
-            #f3e7c6 20% 100%
+            var(--kleur-papier-licht) 20% 100%
         );
 }
 
 .darkblue {
-    --tape-accent: #111a33;
+    --tape-accent: var(--kleur-donkerblauw);
     width: 97%;
     font-family: "Archivo Black", sans-serif;
 
@@ -737,12 +780,12 @@ article[data-id="sprint0"] {
         linear-gradient(
             90deg,
             var(--tape-dark) 0 75%,
-            #f3e7c6 75% 100%
+            var(--kleur-papier-licht) 75% 100%
         );
 }
 
 .purple {
-    --tape-accent: #7d38b8;
+    --tape-accent: var(--kleur-paars);
     width: 100%;
     font-family: "Audiowide", sans-serif;
 
@@ -750,9 +793,9 @@ article[data-id="sprint0"] {
     --width: clamp(1.5rem, 4vw, 2rem);
     --height: clamp(.8rem, 1.8vw, 1rem);
     --radius: .2rem;
-    --background: #111;
-    --color: #7d38b8;
-    --border: clamp(1px, 0.15vw, 3px) solid #7d38b8;
+    --background: var(--kleur-bijna-zwart);
+    --color: var(--kleur-paars);
+    --border: clamp(1px, 0.15vw, 3px) solid var(--kleur-paars);
     --font-size: clamp(.6rem, 1vw, 1rem);
 
     --rotate: 0deg;
@@ -762,34 +805,35 @@ article[data-id="sprint0"] {
     --strip:
         repeating-linear-gradient(
             90deg,
-            #111 0 .35rem,
-            #f3e7c6 .35rem .7rem
+            var(--kleur-bijna-zwart) 0 .35rem,
+            var(--kleur-papier-licht) .35rem .7rem
         );
 
 }
 
 /* WEEKLY NERD */
 
-.weeklyNerds {
+.content-section {
+    height: 100vh;
     width: min(70rem, 90vw);
     margin-inline: auto;
 
     padding: 2rem;
 
-    color: #d3aa5a;
+    color: var(--kleur-goud);
     font-family: Oswald;
 }
 
-.weeklyNerds h2 {
+.content-section h2 {
     margin-bottom: 1rem;
     font-size: clamp(2rem, 4vw, 4rem);
 }
 
-.nerdTalk {
+.content-toggle {
     margin-bottom: 1rem;
 }
 
-.nerdTalk summary {
+.content-toggle summary {
     list-style: none;
 
     display: flex;
@@ -800,11 +844,11 @@ article[data-id="sprint0"] {
 
     padding: 1rem;
 
-    background-color:  #efe2bd;
+    background-color:  var(--kleur-papier);
 
-    border: .15rem solid #f3e7c6;
+    border: .15rem solid var(--kleur-papier-licht);
 
-    color: #111a33;
+    color: var(--kleur-donkerblauw);
 
     font-size: 1.2rem;
 
@@ -813,21 +857,21 @@ article[data-id="sprint0"] {
         0 .2rem .4rem rgba(0,0,0,.2);
 }
 
-.nerdTalk summary::-webkit-details-marker {
+.content-toggle summary::-webkit-details-marker {
     display: none;
 }
 
-.nerdTalk summary::after {
+.content-toggle summary::after {
     content: "▶";
     transition: .2s;
 }
 
-.nerdTalk[open] summary::after {
+.content-toggle[open] summary::after {
     transform: rotate(90deg);
 }
 
 .speaker {
-    color: #d3aa5a;
+    color: var(--kleur-goud);
     font-weight: bold;
 }
 
@@ -835,7 +879,7 @@ article[data-id="sprint0"] {
     opacity: .7;
 }
 
-.talkContent {
+.content-toggle-content {
     padding: 1.5rem;
 
     background:
@@ -845,13 +889,13 @@ article[data-id="sprint0"] {
             rgba(0,0,0,.85)
         );
 
-    color: #d3aa5a;
+    color: var(--kleur-goud);
 
     border-inline:
-        .15rem solid #2b1b11;
+        .15rem solid var(--kleur-tv-donker);
 
     border-bottom:
-        .15rem solid #2b1b11;
+        .15rem solid var(--kleur-tv-donker);
 }
 
 /* STATES */
@@ -863,7 +907,7 @@ article[data-id="sprint0"] {
         translate(1rem);
 }
 
-.vhsStack input[type="radio"]:checked + .tape {
+.vhs-stack input[type="radio"]:checked + .tape {
     background:
         linear-gradient(
             90deg,
@@ -872,7 +916,7 @@ article[data-id="sprint0"] {
             var(--tape-dark) 90% 100%
         );
 
-    outline: .2rem solid #d3aa5a;
+    outline: .2rem solid var(--kleur-goud);
 }
 
 .content:has(#hackathon:checked) article[data-id="hackathon"] {
@@ -887,7 +931,7 @@ article[data-id="sprint0"] {
     display:block;
 }
 
-.content:has(#css:checked) .postit[data-id="CSS"] {
+.content:has(#css:checked) .postit[data-id="css"] {
     display:block;
     top: -.1rem;
 }
@@ -913,7 +957,7 @@ article[data-id="sprint0"] {
 }
 
 body.cursed-theme :focus-visible {
-    outline: .2rem solid #ff3b8d;
+    outline: .2rem solid var(--kleur-cursed-roze);
     outline-offset: .25rem;
 
     box-shadow:
@@ -921,7 +965,7 @@ body.cursed-theme :focus-visible {
 }
 
 :focus-visible {
-    outline: .2rem solid #d3aa5a;
+    outline: .2rem solid var(--kleur-goud);
     outline-offset: .25rem;
 
     box-shadow:
@@ -970,31 +1014,31 @@ html:has(body.cursed-theme) {
     background:
         radial-gradient(circle at 50% 40%, rgba(255, 0, 90, .25), transparent 35%),
         radial-gradient(circle at 20% 20%, rgba(0, 255, 255, .12), transparent 30%),
-        linear-gradient(180deg, #160018, #020202);
+        linear-gradient(180deg, var(--kleur-cursed-achtergrond-donker), var(--kleur-cursed-achtergrond-zwart));
     background-attachment: fixed;
 }
 
-body.cursed-theme .contentText {
-    color: #ff3b8d;
+body.cursed-theme .content-text {
+    color: var(--kleur-cursed-roze);
     text-shadow:
         2px 0 red,
         -2px 0 cyan,
-        0 0 1rem #ff3b8d;
+        0 0 1rem var(--kleur-cursed-roze);
     animation:
         printIn 1s ease-out forwards,
         textGlitch .18s infinite steps(2);
 }
 
-body.cursed-theme .wrapper {
+body.cursed-theme .tv {
     transform: rotate(-1deg);
     background:
         linear-gradient(
             145deg,
-            #1b0614,
-            #050505
+            var(--kleur-cursed-tv),
+            var(--kleur-cursed-zwart)
         );
 
-    border-color: #2b001a;
+    border-color: var(--kleur-cursed-roze-donker);
 
     box-shadow:
         0 0 2rem rgba(255, 0, 90, .7),
@@ -1002,7 +1046,7 @@ body.cursed-theme .wrapper {
         inset -.2rem -.2rem .8rem rgba(0,0,0,.8);
 }
 
-body.cursed-theme .wrapper::before {
+body.cursed-theme .tv::before {
     background:
         repeating-linear-gradient(
             to bottom,
@@ -1016,17 +1060,17 @@ body.cursed-theme .wrapper::before {
         );
 }
 
-body.cursed-theme .wrapper::after {
+body.cursed-theme .tv::after {
     background:
         repeating-linear-gradient(
             to bottom,
-            #ff0066 0 .15rem,
+            var(--kleur-cursed-rood) 0 .15rem,
             transparent .15rem .4rem
         );
 }
 
 body.cursed-theme article {
-    color: #ff88bd;
+    color: var(--kleur-cursed-tekst);
     text-shadow:
         1px 0 red,
         -1px 0 cyan,
@@ -1038,9 +1082,9 @@ body.cursed-theme .tape {
     background:
         linear-gradient(
             90deg,
-            #050505 0 12%,
-            #d8d8d8 12% 90%,
-            #050505 90% 100%
+            var(--kleur-cursed-zwart) 0 12%,
+            var(--kleur-cursed-grijs) 12% 90%,
+            var(--kleur-cursed-zwart) 90% 100%
         );
 }
 
@@ -1051,18 +1095,18 @@ body.cursed-theme .tape:hover {
         scale(1.03);
 }
 
-body.cursed-theme .vhsStack input[type="radio"]:checked + .tape {
-    outline: .2rem solid #ff3b8d;
+body.cursed-theme .vhs-stack input[type="radio"]:checked + .tape {
+    outline: .2rem solid var(--kleur-cursed-roze);
     box-shadow:
         0 0 1rem rgba(255,0,90,.8),
         inset 0 0 .6rem rgba(0,0,0,.6);
 }
 
-body.cursed-theme .catGroup {
+body.cursed-theme .cat-group {
     filter:
         grayscale(1)
         contrast(1.4)
-        drop-shadow(0 0 1rem #ff0066);
+        drop-shadow(0 0 1rem var(--kleur-cursed-rood));
     animation: catGlitch .25s infinite steps(2);
 }
 
@@ -1097,52 +1141,51 @@ body.cursed-theme a {
     background:
         linear-gradient(
             180deg,
-            #ff3b8d,
-            #2b001a
+            var(--kleur-cursed-roze),
+            var(--kleur-cursed-roze-donker)
         );
 
     color: white;
-    border-color: #ff88bd;
+    border-color: var(--kleur-cursed-tekst);
 
     box-shadow:
         0 0 .8rem rgba(255,0,90,.8),
         inset 0 0 .5rem rgba(0,0,0,.6);
 }
 
-body.cursed-theme .themeButton {
-    position: fixed;
-    color: #ff3b8d;
-    border-color: #ff3b8d;
+body.cursed-theme .theme-button {
+    color: var(--kleur-cursed-roze);
+    border-color: var(--kleur-cursed-roze);
     box-shadow:
         0 0 1rem rgba(255,0,90,.8),
         inset 0 0 .5rem rgba(255,0,90,.3);
 }
 
 body.cursed-theme .postit {
-    background: #32001f;
-    color: #ff88bd;
+    background: var(--kleur-cursed-postit);
+    color: var(--kleur-cursed-tekst);
 }
 
-body.cursed-theme .nerdTalk summary {
+body.cursed-theme .content-toggle summary {
     background:
         linear-gradient(
             90deg,
-            #220011,
-            #3a001f,
-            #220011
+            var(--kleur-cursed-achtergrond),
+            var(--kleur-cursed-achtergrond-midden),
+            var(--kleur-cursed-achtergrond)
         );
 
-    color: #ff88bd;
+    color: var(--kleur-cursed-tekst);
 
-    border-color: #ff3b8d;
+    border-color: var(--kleur-cursed-roze);
 }
 
-body.cursed-theme .talkContent {
-    color: #ff88bd;
+body.cursed-theme .content-toggle-content {
+    color: var(--kleur-cursed-tekst);
 }
 
-body.cursed-theme .weeklyNerds h2 {
-    color: #ff3b8d;
+body.cursed-theme .content-section h2 {
+    color: var(--kleur-cursed-roze);
 
     text-shadow:
         1px 0 red,
@@ -1151,7 +1194,7 @@ body.cursed-theme .weeklyNerds h2 {
 }
 
 body.cursed-theme .speaker {
-    color: #ff3b8d;
+    color: var(--kleur-cursed-roze);
     font-weight: bold;
 }
 
@@ -1167,7 +1210,7 @@ article p {
     left: 31rem;
 }
 
-.vhsSection {
+.vhs-section {
     margin-top: 22vh;
 }
 }
@@ -1178,20 +1221,15 @@ article p {
     font-size: 15px;
 }
 
-a:before {
-    font-size: 15px;
-    padding: .2em;
-}
-
-.catGroup {
+.cat-group {
     height: 80vh;
 }
 
-.textRight {
+.text-right {
     margin-top: 3vh;
 }
 
-.vhsSection {
+.vhs-section {
     margin-top: 25vh;
 }
 
@@ -1199,7 +1237,7 @@ a:before {
     display:none;
 }
 
-.content:has(#css:checked) .postit[data-id="CSS"] {
+.content:has(#css:checked) .postit[data-id="css"] {
     display:none;
 }
 }
@@ -1214,11 +1252,6 @@ article h2 {
     font-size: 18px;
 }
 
-a:before {
-    font-size: 12px;
-    padding: .03em;
-}
-
 .content {
     display: flex;
     flex-direction: column;
@@ -1226,12 +1259,12 @@ a:before {
     gap: 2rem;
 }
 
-.vhsSection {
+.vhs-section {
     margin-top: 0;
     transform: translateY(clamp(-14rem, 20vh, -22rem));
 }
 
-.vhsStack {
+.vhs-stack {
     width: 15rem;
 }
 
@@ -1239,27 +1272,27 @@ a:before {
     height: 1.9em;
 }
 
-.wrapper {
+.tv {
     width: 90%;
 }
 
-.catGroup {
+.cat-group {
     height: clamp(70vh, 25vw, 80vh);
 }
 
-.textRight {
+.text-right {
     margin-top: -.2rem;
     margin-right: clamp(10rem, 10vw, 30rem);
     margin-left: clamp(5rem, 5vw, 10rem);
 }
 
-.wrapper {
+.tv {
     height: 50vh;
 }
 }
 
 @media (max-width: 900px) and (min-width: 700px) {
-    .vhsSection {
+    .vhs-section {
         transform: translateY(-22rem);
     }
 }

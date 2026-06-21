@@ -9,7 +9,7 @@ random.forEach((item) => {
 
 // BUTTON 
 
-const themeButton = document.querySelector(".themeButton");
+const themeButton = document.querySelector(".theme-button");
 
 themeButton.addEventListener("click", () => {
     document.body.classList.toggle("cursed-theme");
@@ -23,12 +23,12 @@ themeButton.addEventListener("click", () => {
 
 // SCROLL ANIMATIE
 
-const heroScroll = document.querySelector(".contentScroll");
-const cat = document.querySelector(".catGroup");
+const heroScroll = document.querySelector(".content-scroll");
+const cat = document.querySelector(".cat-group");
 const text = document.querySelectorAll("[data-type='scroll']");
-const label = document.querySelector(".labelGroup");
-const tape = document.querySelector(".vhsStack");
-const content = document.querySelectorAll(".wrapper");
+const label = document.querySelector(".label-group");
+const tape = document.querySelector(".vhs-stack");
+const content = document.querySelectorAll(".tv");
 
 const mobileView = window.matchMedia("(max-width: 699px)");
 
