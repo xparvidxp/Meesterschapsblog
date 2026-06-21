@@ -249,14 +249,193 @@
     </section>
 </div>
 
+
 <section class="content-section">
 
     <h2 tabindex="0">Weekly Nerd</h2>
 
+<details class="content-toggle">
+        <summary>
+            <span class="speaker">Killian Valkhof</span>
+            <span>Weekly Nerd 1</span>
+        </summary>
+
+        <div class="content-toggle-content">
+<h3>Rule of Least Power</h3>
+
+<p>
+    Gebruik niet automatisch JavaScript voor alles. Veel functionaliteiten
+    kunnen tegenwoordig gewoon met HTML en CSS worden opgelost.
+</p>
+
+<p>
+    Volgens de Rule of Least Power gebruik je eerst HTML, daarna CSS en pas
+    daarna JavaScript.
+</p>
+
+<ul>
+    <li>HTML voor structuur.</li>
+    <li>CSS voor presentatie en interactie.</li>
+    <li>JavaScript alleen wanneer het echt nodig is.</li>
+</ul>
+
+<p>
+    JavaScript is krachtig, maar ook zwaarder en kwetsbaarder dan HTML en CSS.
+</p>
+
+<h3>Polypane</h3>
+
+<p>
+    Polypane is een tool van Kilian Valkhof die helpt bij responsive design.
+</p>
+
+<ul>
+    <li>Gratis voor studenten.</li>
+    <li>Gebouwd met JavaScript.</li>
+</ul>
+
+<p>
+    Dat maakt duidelijk dat hij niet tegen JavaScript is, maar wel tegen
+    onnodig gebruik ervan.
+</p>
+
+<h3>React en JSX</h3>
+
+<p>
+    Voor React-developers is het goed om te onthouden dat JSX eigenlijk een
+    dialect van HTML is.
+</p>
+
+<h3>Custom switches</h3>
+
+<p>
+    Veel developers bouwen switches met div-elementen en JavaScript-events,
+    terwijl HTML en CSS hiervoor vaak voldoende zijn.
+</p>
+
+<ul>
+    <li>Gebruik een checkbox als basis.</li>
+    <li>Gebruik <code>appearance: none</code> om de standaardstijl te verwijderen.</li>
+    <li>Gebruik <code>::before</code> voor de eigen vormgeving.</li>
+    <li>Gebruik <code>:checked</code> voor de actieve staat.</li>
+    <li>Gebruik <code>:focus</code> voor toetsenbordnavigatie.</li>
+</ul>
+
+<p>
+    Verwijder nooit zomaar een outline zonder een toegankelijk alternatief aan
+    te bieden.
+</p>
+
+<p>
+    Safari heeft zelfs een ingebouwde switch-weergave.
+</p>
+
+<h3>Smooth scrolling en page transitions</h3>
+
+<p>
+    Functionaliteiten die vroeger vaak met jQuery werden gebouwd, kunnen nu
+    grotendeels met CSS worden opgelost.
+</p>
+
+<ul>
+    <li><code>scroll-behavior: smooth</code> voor vloeiend scrollen.</li>
+    <li><code>prefers-reduced-motion</code> voor gebruikers die gevoelig zijn voor animaties.</li>
+</ul>
+
+<h3>Accordions</h3>
+
+<p>
+    Voor uitklapbare content kunnen de elementen
+    <code>&lt;details&gt;</code> en <code>&lt;summary&gt;</code> worden gebruikt.
+</p>
+
+<ul>
+    <li><code>&lt;details&gt;</code> bevat de verborgen content.</li>
+    <li><code>&lt;summary&gt;</code> is de altijd zichtbare titel.</li>
+    <li>Werkt zonder JavaScript.</li>
+    <li>Is standaard toegankelijker.</li>
+    <li>Kan volledig worden gestyled met CSS.</li>
+</ul>
+
+<p>
+    Het standaard pijltje is aanpasbaar via <code>::marker</code>.
+</p>
+
+<h3>Dialog</h3>
+
+<p>
+    Het <code>&lt;dialog&gt;</code>-element kan worden gebruikt voor modals.
+</p>
+
+<ul>
+    <li>Standaard verborgen.</li>
+    <li>Vervangt veel JavaScript-oplossingen.</li>
+    <li>Kan worden geanimeerd met <code>@starting-style</code>.</li>
+</ul>
+
+<p>
+    Soms is nog een klein beetje JavaScript nodig voor het openen en sluiten.
+</p>
+
+<h3>Field sizing</h3>
+
+<p>
+    Met field sizing kunnen invoervelden automatisch meegroeien met hun
+    inhoud.
+</p>
+
+<p>
+    Deze functionaliteit wordt momenteel ondersteund door Chrome en Safari.
+</p>
+
+<h3>Select styling</h3>
+
+<p>
+    Select-elementen waren lange tijd moeilijk te stylen zonder functionaliteit
+    kwijt te raken.
+</p>
+
+<p>
+    Nieuwe CSS-mogelijkheden maken dit eenvoudiger.
+</p>
+
+<ul>
+    <li><code>::picker(select)</code></li>
+    <li><code>appearance: base-select</code></li>
+</ul>
+
+<p>
+    Op dit moment is de ondersteuning vooral aanwezig in Chrome.
+</p>
+
+<h3>Scroll-driven animations</h3>
+
+<p>
+    Scroll-animaties kunnen tegenwoordig direct aan scrollgedrag worden
+    gekoppeld met CSS.
+</p>
+
+<p>
+    Hierdoor is JavaScript voor veel scroll-animaties niet meer nodig.
+</p>
+
+<h3>Belangrijkste takeaway</h3>
+
+<p>
+    Gebruik JavaScript alleen wanneer het daadwerkelijk nodig is.
+</p>
+
+<p>
+    Moderne HTML en CSS bieden veel meer mogelijkheden dan veel developers
+    zich realiseren.
+</p>
+        </div>
+    </details>
+
     <details class="content-toggle">
         <summary>
             <span class="speaker">Peter Paul Koch</span>
-            <span class="date">Weekly Nerd 1</span>
+            <span>Weekly Nerd 2</span>
         </summary>
 
         <div class="content-toggle-content">
@@ -412,68 +591,726 @@
 
     <details class="content-toggle">
         <summary>
-            <span class="speaker">Niels Leenheer</span>
-            <span class="date">Week 2</span>
+            <span class="speaker">Nils Binder</span>
+            <span>Weekly Nerd 3</span>
         </summary>
 
         <div class="content-toggle-content">
-            <p>
-                Samenvatting...
-            </p>
+<h3>Nils Binder</h3>
+
+<p>
+    Nils Binder is UX designer en frontend developer bij 9elements.
+</p>
+
+<p>
+    Zijn talk ging over het combineren van creativiteit met de meer
+    gestructureerde werkwijze binnen bedrijven.
+</p>
+
+<h3>Design tools door de jaren heen</h3>
+
+<p>
+    Vroeger werden websites vaak ontworpen in Adobe Photoshop.
+</p>
+
+<p>
+    Dit sloot minder goed aan op hoe websites uiteindelijk gebouwd werden.
+</p>
+
+<p>
+    Tegenwoordig wordt veel gewerkt met Figma.
+</p>
+
+<p>
+    Figma sluit beter aan op moderne frontend development doordat het meer
+    werkt met layouts en componenten.
+</p>
+
+<p>
+    Volgens Nils vormen Tailwind, ChatGPT en Figma samen de
+    "holy trinity of boredom".
+</p>
+
+<p>
+    Veel websites gaan hierdoor steeds meer op elkaar lijken.
+</p>
+
+<h3>Denk in onderdelen, niet pixels</h3>
+
+<p>
+    Kijk niet alleen naar individuele pixels, maar naar grotere onderdelen van
+    een ontwerp.
+</p>
+
+<ul>
+    <li>Focus op structuur.</li>
+    <li>Focus op herbruikbare componenten.</li>
+    <li>Niet op perfecte pixel placement.</li>
+</ul>
+
+<h3>CSS Grid en whitespace</h3>
+
+<p>
+    De <code>fr</code>-unit binnen CSS Grid kan worden gebruikt om beschikbare
+    ruimte beter te verdelen.
+</p>
+
+<p>
+    Hierdoor ontstaat meer flexibiliteit binnen layouts.
+</p>
+
+<p>
+    Ook witruimte kan hiermee beter worden gecontroleerd.
+</p>
+
+<h3>Creatieve CSS voorbeelden</h3>
+
+<p>
+    CSS kan worden gebruikt voor creatieve interacties en animaties.
+</p>
+
+<p>
+    Een voorbeeld was een flipbook-effect opgebouwd uit afbeeldingen,
+    CSS animations en de <code>steps()</code>-functie.
+</p>
+
+<p>
+    Hierdoor ontstaat een frame-by-frame animatie-effect.
+</p>
+
+<h3>Subgrid</h3>
+
+<p>
+    Subgrid is een grid binnen een bestaand grid.
+</p>
+
+<p>
+    Child-elementen kunnen hierdoor dezelfde gridstructuur volgen als hun
+    parent.
+</p>
+
+<p>
+    Dit helpt bij het bouwen van consistente layouts.
+</p>
+
+<h3>Handige selectors</h3>
+
+<p>
+    De selector <code>::first-line</code> maakt het mogelijk om alleen de
+    eerste regel van een tekstblok te stylen.
+</p>
+
+<h3>View Transitions</h3>
+
+<p>
+    Met de View Transitions API kunnen soepelere overgangen tussen pagina's
+    worden gemaakt.
+</p>
+
+<p>
+    Hierdoor voelen navigaties en paginawisselingen vloeiender aan.
+</p>
+
+<h3>Websites en projecten</h3>
+
+<ul>
+    <li>bonabry.de</li>
+    <li>9elements</li>
+    <li>bonamic.de</li>
+</ul>
+
+<h3>Belangrijkste takeaway</h3>
+
+<p>
+    CSS wordt steeds krachtiger.
+</p>
+
+<p>
+    Veel creatieve oplossingen kunnen tegenwoordig direct met CSS worden
+    gebouwd zonder afhankelijk te zijn van zware design tools of JavaScript.
+</p>
+
+<p>
+    Denk meer in systemen, layouts en componenten dan in losse pixels.
+</p>
         </div>
     </details>
 
     <details class="content-toggle">
         <summary>
-            <span class="speaker">Niels Leenheer</span>
-            <span class="date">Week 2</span>
+            <span class="speaker">Robbert en Yolijn</span>
+            <span>Weekly Nerd 4</span>
         </summary>
 
         <div class="content-toggle-content">
-            <p>
-                Samenvatting...
-            </p>
+<h3>Formulieren</h3>
+
+<p>
+    Een formulier moet een duidelijke en logische flow hebben.
+</p>
+
+<ul>
+    <li>Introductie en uitleg.</li>
+    <li>Benodigde gegevens invullen.</li>
+    <li>Gegevens controleren.</li>
+    <li>Foutmeldingen tonen na verzenden.</li>
+    <li>Duidelijke bevestiging na succesvolle verzending.</li>
+</ul>
+
+<h3>Introductie</h3>
+
+<p>
+    Maak vooraf duidelijk wat gebruikers kunnen verwachten.
+</p>
+
+<ul>
+    <li>Hoe lang het formulier ongeveer duurt.</li>
+    <li>Hoeveel stappen er zijn.</li>
+    <li>Of aanvullende documenten nodig zijn.</li>
+</ul>
+
+<p>
+    Een tijdsinschatting moet altijd realistisch zijn.
+</p>
+
+<h3>Validatie en feedback</h3>
+
+<p>
+    Feedback moet duidelijk zijn en gebruikers helpen om fouten op te lossen.
+</p>
+
+<p>
+    Bij fouten:
+</p>
+
+<ul>
+    <li>Rode outlines rondom velden.</li>
+    <li>Duidelijke foutmeldingsteksten.</li>
+    <li>Een samenvatting van alle fouten na verzenden.</li>
+</ul>
+
+<p>
+    Bij succes:
+</p>
+
+<ul>
+    <li>Groene feedback.</li>
+    <li>Een duidelijke bevestiging.</li>
+    <li>Uitleg over vervolgstappen.</li>
+</ul>
+
+<h3>Vraag alleen noodzakelijke informatie</h3>
+
+<p>
+    Vraag niet meer informatie dan nodig is.
+</p>
+
+<ul>
+    <li>Geslacht is vaak niet noodzakelijk.</li>
+    <li>Vraag geen e-mailadres meerdere keren.</li>
+    <li>Vermijd onduidelijke afkortingen.</li>
+    <li>Leg uit waarom informatie nodig is.</li>
+</ul>
+
+<h3>Labels en inputvelden</h3>
+
+<p>
+    Labels spelen een belangrijke rol in gebruiksvriendelijkheid en
+    toegankelijkheid.
+</p>
+
+<ul>
+    <li>Plaats labels boven invoervelden.</li>
+    <li>Koppel labels aan inputs zodat ze klikbaar zijn.</li>
+    <li>Houd labels kort en duidelijk.</li>
+    <li>Gebruik placeholders niet als vervanging van labels.</li>
+    <li>Gebruik liever "verplicht" of "niet verplicht" dan alleen een sterretje.</li>
+</ul>
+
+<p>
+    Voornaam is duidelijker dan Voorna(a)m(en).
+</p>
+
+<h3>Design richtlijnen</h3>
+
+<ul>
+    <li>Duidelijke kleurcontrasten.</li>
+    <li>Klikbare elementen minimaal 44 × 44 pixels.</li>
+    <li>Buttons aan het begin van een regel plaatsen.</li>
+    <li>Voortgang altijd bovenaan tonen.</li>
+    <li>Consistente navigatie gebruiken.</li>
+</ul>
+
+<p>
+    Bijvoorbeeld: volgende, vorige en annuleren.
+</p>
+
+<h3>Gebruiksgemak</h3>
+
+<p>
+    Maak gebruik van bestaande browserfunctionaliteiten waar mogelijk.
+</p>
+
+<ul>
+    <li>Automatisch invullen ondersteunen.</li>
+    <li>Copy en paste toestaan.</li>
+    <li>Browser autocomplete ondersteunen.</li>
+    <li>Voldoende ruimte laten voor autocomplete-menu's.</li>
+    <li>Belangrijke uitleg zichtbaar houden.</li>
+</ul>
+
+<p>
+    <code>aria-describedby</code> kan worden gebruikt voor aanvullende uitleg.
+</p>
+
+<h3>Controle stap</h3>
+
+<p>
+    Laat gebruikers hun gegevens controleren voordat ze definitief verzenden.
+</p>
+
+<p>
+    Hierdoor kunnen fouten worden ontdekt voordat de aanvraag wordt verstuurd.
+</p>
+
+<h3>CSS sizing</h3>
+
+<p>
+    Gebruik liever logische CSS-properties dan fysieke afmetingen.
+</p>
+
+<ul>
+    <li><code>inline-size</code> in plaats van <code>width</code>.</li>
+    <li><code>block-size</code> in plaats van <code>height</code>.</li>
+</ul>
+
+<h3>Flexibele validatie</h3>
+
+<p>
+    Validatie moet gebruikers helpen en niet onnodig beperken.
+</p>
+
+<ul>
+    <li>Geef maximale aantallen tekens duidelijk aan.</li>
+    <li>Voorkom onnodige restricties.</li>
+    <li>Accepteer meerdere invoerformaten waar mogelijk.</li>
+</ul>
+
+<p>
+    Bijvoorbeeld een postcode met of zonder spatie.
+</p>
+
+<h3>Toetsenbord toegankelijkheid</h3>
+
+<p>
+    Een formulier moet volledig zonder muis te gebruiken zijn.
+</p>
+
+<ul>
+    <li>Tab.</li>
+    <li>Shift + Tab.</li>
+    <li>Pijltjestoetsen.</li>
+</ul>
+
+<p>
+    Daarnaast zijn een logische tabvolgorde en duidelijke focus states
+    belangrijk.
+</p>
+
+<p>
+    Radio buttons moeten ook met de pijltjestoetsen bedienbaar zijn.
+</p>
+
+<h3>Screenreaders en toegankelijkheid</h3>
+
+<p>
+    Toegankelijkheid moet worden getest met echte gebruikers.
+</p>
+
+<p>
+    Screenreaders moeten kunnen voorlezen:
+</p>
+
+<ul>
+    <li>Labels.</li>
+    <li>Beschrijvingen.</li>
+    <li>Verplichte velden.</li>
+    <li>Foutmeldingen.</li>
+    <li>Formulierstappen.</li>
+    <li>Bevestigingen na verzending.</li>
+</ul>
+
+<p>
+    Feedback moet behulpzaam zijn en niet storend werken.
+</p>
+
+<h3>Belangrijkste takeaway</h3>
+
+<p>
+    Goede formulieren vragen alleen noodzakelijke informatie en begeleiden
+    gebruikers stap voor stap door het proces.
+</p>
+
+<p>
+    Toegankelijkheid, duidelijke feedback en gebruiksgemak zijn daarbij
+    minstens zo belangrijk als het visuele ontwerp.
+</p>
         </div>
     </details>
 
     <details class="content-toggle">
         <summary>
-            <span class="speaker">Niels Leenheer</span>
-            <span class="date">Week 2</span>
+            <span class="speaker">Rosa, Hackers United</span>
+            <span>Weekly Nerd 5</span>
         </summary>
 
         <div class="content-toggle-content">
-            <p>
-                Samenvatting...
-            </p>
+    <h3>Rosa</h3>
+
+    <p>
+        Rosa sprak over digitale onafhankelijkheid en duurzaamheid binnen
+        technologie.
+    </p>
+
+    <p>
+        Centraal stond de vraag hoe afhankelijk we zijn geworden van grote
+        technologiebedrijven en hoe we daar bewuster mee om kunnen gaan.
+    </p>
+
+    <h3>Planned obsolescence</h3>
+
+    <p>
+        Veel apparaten worden steeds moeilijker te repareren of voelen sneller
+        verouderd aan.
+    </p>
+
+    <p>
+        Dit stimuleert consumenten om eerder nieuwe apparaten aan te schaffen.
+    </p>
+
+    <ul>
+        <li>Sneller nieuwe apparaten kopen.</li>
+        <li>Meer afhankelijkheid van grote techbedrijven.</li>
+        <li>Minder controle over eigen apparaten.</li>
+    </ul>
+
+    <p>
+        Dit hangt samen met de groeiende afhankelijkheid van voornamelijk
+        Amerikaanse Big Tech bedrijven.
+    </p>
+
+    <h3>Cloud en servers</h3>
+
+    <p>
+        De cloud is uiteindelijk gewoon een verzameling servers waarop websites en
+        diensten draaien.
+    </p>
+
+    <p>
+        Gebruikers hebben vaak weinig inzicht in of controle over deze systemen.
+    </p>
+
+    <p>
+        Een server is in de basis:
+    </p>
+
+    <ul>
+        <li>Een computer.</li>
+        <li>Verbonden met een router.</li>
+        <li>Slaat informatie op.</li>
+        <li>Verstuurt informatie naar gebruikers.</li>
+    </ul>
+
+    <h3>Duurzamere hosting</h3>
+
+    <p>
+        Er zijn initiatieven die hosting op een duurzamere manier proberen aan te
+        bieden.
+    </p>
+
+    <p>
+        Node9 werd genoemd als voorbeeld van een meer eco-driven hostinginitiatief.
+    </p>
+
+    <h3>Static Site Generators</h3>
+
+    <p>
+        Static Site Generators kunnen bijdragen aan duurzamere websites doordat ze
+        minder serverkracht nodig hebben.
+    </p>
+
+    <ul>
+        <li>Minder belasting op servers.</li>
+        <li>Minder complexe infrastructuur.</li>
+        <li>Overzichtelijke codebases.</li>
+        <li>Markdown blijft vaak leesbaar wanneer systemen uitvallen.</li>
+    </ul>
+
+    <p>
+        Eleventy (11ty) werd genoemd als voorbeeld.
+    </p>
+
+    <h3>Zelf hosten</h3>
+
+    <p>
+        Zelf hosting geeft meer controle over eigen data en infrastructuur.
+    </p>
+
+    <p>
+        Rosa moedigde aan om minder afhankelijk te worden van grote platformen.
+    </p>
+
+    <ul>
+        <li>Git repositories.</li>
+        <li>Messaging platforms.</li>
+        <li>Websites.</li>
+    </ul>
+
+    <p>
+        Door zelf te hosten ontstaat meer digitale onafhankelijkheid.
+    </p>
+
+    <h3>DIY en DIWO</h3>
+
+    <p>
+        DIY staat voor Do It Yourself.
+    </p>
+
+    <p>
+        DIWO staat voor Do It With Others.
+    </p>
+
+    <p>
+        Niet alleen zelf leren maken, maar ook kennis delen met anderen stond
+        centraal.
+    </p>
+
+    <p>
+        Community en samenwerking werden gezien als belangrijke onderdelen van een
+        duurzamer internet.
+    </p>
+
+    <ul>
+        <li>Donderdagavond community-avonden.</li>
+        <li>Vrijdag sociale avond.</li>
+    </ul>
+
+    <h3>Belangrijkste takeaway</h3>
+
+    <p>
+        Digitale onafhankelijkheid begint bij begrijpen hoe technologie werkt en
+        waar onze afhankelijkheden liggen.
+    </p>
+
+    <p>
+        Zelf hosten, open technologie gebruiken en kennis delen kunnen bijdragen
+        aan een duurzamer en onafhankelijker internet.
+    </p>
         </div>
     </details>
 
-    <details class="content-toggle">
-        <summary>
-            <span class="speaker">Niels Leenheer</span>
-            <span class="date">Week 2</span>
-        </summary>
+<details class="content-toggle">
+    <summary>
+        <span class="speaker">Johan Huijkman</span>
+        <span>Weekly Nerd 6</span>
+    </summary>
 
-        <div class="content-toggle-content">
-            <p>
-                Samenvatting...
-            </p>
-        </div>
-    </details>
+    <div class="content-toggle-content">
+        <h3>Toegankelijkheid</h3>
 
-    <details class="content-toggle">
-        <summary>
-            <span class="speaker">Niels Leenheer</span>
-            <span class="date">Week 2</span>
-        </summary>
+        <p>
+            "Je gaat het pas zien als je het doorhebt."
+        </p>
 
-        <div class="content-toggle-content">
-            <p>
-                Samenvatting...
-            </p>
-        </div>
-    </details>
+        <p>
+            "Je hoort het pas als je luistert."
+        </p>
+
+        <p>
+            De kern van de talk was dat toegankelijkheid pas echt begrijpelijk wordt
+            wanneer je luistert naar mensen die er dagelijks mee te maken hebben.
+        </p>
+
+        <p>
+            Richtlijnen zijn waardevol, maar ervaringen van echte gebruikers zijn vaak
+            nog waardevoller.
+        </p>
+
+        <h3>WCAG-principes</h3>
+
+        <p>
+            WCAG is gebaseerd op vier kernprincipes.
+        </p>
+
+        <dl>
+            <dt>Perceivable</dt>
+            <dd>Content moet waarneembaar zijn.</dd>
+
+            <dt>Operable</dt>
+            <dd>Een website moet bedienbaar zijn.</dd>
+
+            <dt>Understandable</dt>
+            <dd>Informatie moet begrijpelijk zijn.</dd>
+
+            <dt>Robust</dt>
+            <dd>Moet werken op verschillende technologieën en hulpmiddelen.</dd>
+        </dl>
+
+        <p>
+            WCAG is een hulpmiddel, geen einddoel.
+        </p>
+
+        <p>
+            Toegankelijkheid moet ook worden getest met echte gebruikers.
+        </p>
+
+        <h3>Screenreaders en alt-tekst</h3>
+
+        <p>
+            Maak geen aanpassingen op basis van aannames.
+        </p>
+
+        <p>
+            Praat met mensen die dagelijks screenreaders gebruiken en leer hoe zij
+            websites ervaren.
+        </p>
+
+        <p>
+            Veel problemen zijn al opgelost binnen bestaande hulpmiddelen.
+        </p>
+
+        <p>
+            Niet iedere afbeelding heeft uitgebreide alt-tekst nodig.
+        </p>
+
+        <ul>
+            <li>Informatieve afbeeldingen krijgen een beschrijving.</li>
+            <li>Decoratieve afbeeldingen mogen een lege alt-tekst hebben.</li>
+        </ul>
+
+        <p>
+            Bijvoorbeeld: <code>alt=""</code>.
+        </p>
+
+        <h3>Martijn — kan bijna niets zien</h3>
+
+        <p>
+            Martijn vertelde over problemen die hij regelmatig tegenkomt tijdens het
+            gebruik van websites.
+        </p>
+
+        <p>
+            Veelvoorkomende problemen:
+        </p>
+
+        <ul>
+            <li>Knoppen zonder duidelijke hover- of focus states.</li>
+            <li>Cookie banners waarbij scrollen niet werkt.</li>
+            <li>Slecht kleurcontrast.</li>
+            <li>Captcha's.</li>
+        </ul>
+
+        <p>
+            Wat helpt:
+        </p>
+
+        <ul>
+            <li>Korte en duidelijke teksten.</li>
+            <li>Schaalbare content.</li>
+            <li>Goed contrast.</li>
+            <li>Logische informatiegroepering.</li>
+            <li>Duidelijke focus indicatoren.</li>
+        </ul>
+
+        <h3>Nauduah — beperkte mobiliteit</h3>
+
+        <p>
+            Nauduah vertelde over uitdagingen die ontstaan door beperkte mobiliteit en
+            overbelasting door interfaces.
+        </p>
+
+        <p>
+            Veelvoorkomende problemen:
+        </p>
+
+        <ul>
+            <li>Felle kleuren.</li>
+            <li>Te veel informatie tegelijk.</li>
+            <li>Drukke interfaces.</li>
+            <li>Lang moeten zoeken naar informatie.</li>
+        </ul>
+
+        <p>
+            Wat helpt:
+        </p>
+
+        <ul>
+            <li>Duidelijke structuur.</li>
+            <li>Informatie groeperen.</li>
+            <li>Visueel rustige websites.</li>
+            <li>Dark mode.</li>
+            <li>Gegevens kunnen opslaan.</li>
+        </ul>
+
+        <h3>Guido — autisme</h3>
+
+        <p>
+            Guido vertelde hoe websites soms onnodig veel prikkels veroorzaken.
+        </p>
+
+        <p>
+            Veelvoorkomende problemen:
+        </p>
+
+        <ul>
+            <li>Te veel visuele prikkels.</li>
+            <li>Te veel audio-prikkels.</li>
+            <li>Harde advertenties.</li>
+            <li>Te veel informatie tegelijk.</li>
+            <li>Onduidelijke formuleringen.</li>
+        </ul>
+
+        <p>
+            Wat helpt:
+        </p>
+
+        <ul>
+            <li>Rustige layouts.</li>
+            <li>Voorspelbaarheid.</li>
+            <li>Duidelijke instructies.</li>
+            <li>Concrete teksten.</li>
+            <li>Weinig afleiding.</li>
+        </ul>
+
+        <h3>Toepassing op eigen project</h3>
+
+        <p>
+            Denk na over waarom gebruikers mogelijk afhaken tijdens het gebruik van je
+            eigen project.
+        </p>
+
+        <p>
+            Verschillende gebruikers ervaren verschillende barrières.
+        </p>
+
+        <p>
+            Door gebruikers te betrekken en naar hun ervaringen te luisteren kunnen
+            toegankelijkheidsproblemen eerder worden ontdekt en opgelost.
+        </p>
+
+        <h3>Belangrijkste takeaway</h3>
+
+        <p>
+            Toegankelijkheid gaat niet alleen over richtlijnen, maar vooral over
+            mensen.
+        </p>
+
+        <p>
+            Je begrijpt toegankelijkheid pas echt wanneer je luistert naar gebruikers
+            die dagelijks afhankelijk zijn van hulpmiddelen en aangepaste workflows.
+        </p>
+    </div>
+</details>
 
 </section>
 
@@ -484,43 +1321,200 @@
     <details class="content-toggle">
         <summary>
             <span class="speaker">Reflectie begin</span>
+            <span></span>
         </summary>
 
         <div class="content-toggle-content">
-            <p>
-            </p>
+<h3>Begin van de minor</h3>
 
-            <p>
-            </p>
+<p>
+    Aan het begin van de minor lag mijn focus vooral op het leren van de
+    technische basis.
+</p>
+
+<p>
+    Ik had ideeën die vaak groter waren dan wat op dat moment realistisch was,
+    zoals het bouwen van een website met een geanimeerd 3D-model.
+</p>
+
+<p>
+    Al snel leerde ik dat het belangrijker is om eerst een werkende basis neer
+    te zetten voordat je extra functionaliteiten toevoegt.
+</p>
+
+<p>
+    Tijdens Sprint 0 en de eerste projecten heb ik veel tijd besteed aan HTML,
+    CSS, responsive design en het begrijpen van hoe verschillende onderdelen
+    van een website samenwerken.
+</p>
+
+<p>
+    Ik was vaak bezig met uitzoeken hoe iets technisch werkte en gebruikte
+    opdrachten vooral als manier om nieuwe technieken te leren.
+</p>
+
+<p>
+    Daarbij merkte ik dat ik soms snel geneigd was om oplossingen op te zoeken,
+    terwijl ik juist meer leer wanneer ik eerst zelf probeer een probleem op te
+    lossen.
+</p>
+
+<p>
+    In deze periode draaide mijn ontwikkeling vooral om het opbouwen van
+    technische vaardigheden en het krijgen van vertrouwen in frontend
+    development.
+</p>
         </div>
     </details>
 
     <details class="content-toggle">
         <summary>
             <span class="speaker">Reflectie midden</span>
+            <span></span>
         </summary>
 
         <div class="content-toggle-content">
-            <p>Ik vond de minor tot nu toe leerzaam en uitdagend. Ik heb veel vaardigheden ontwikkeld, 
-            en ook geleerd hoe belangrijk toegankelijkheid en gebruiksvriendelijkheid is bij het ontwikkelen van websites.
-            Ik heb beter leren inschatten in wat haalbaar is in een bepaalde tijd, en hoe ik een idee eerst in de basis af kan maken
-            en daarna extra functies kan toevoegen.
-            Ik vind het leuk om visueel interessante dingen te maken, zoals 3D modellen en animaties. Dit heb ik ook kunnen toepassen in web development.
-            </p>
+<h3>Midden van de minor</h3>
+
+<p>
+    Halverwege de minor begon mijn focus steeds meer te verschuiven van techniek
+    naar de gebruiker.
+</p>
+
+<p>
+    Tijdens vakken zoals HCD en Browser Technologies kwam ik vaker in contact
+    met onderwerpen als toegankelijkheid, progressive enhancement en
+    gebruikersonderzoek.
+</p>
+
+<p>
+    Door samen te werken met gebruikers zoals Ihab ontdekte ik dat een
+    technisch werkende oplossing niet automatisch een goede oplossing is.
+</p>
+
+<p>
+    Feedbackmomenten werden steeds belangrijker en ik merkte dat mijn projecten
+    beter werden wanneer ik gebruikers actief betrok bij het proces.
+</p>
+
+<p>
+    Ook begon ik bewuster na te denken over keuzes rondom JavaScript, HTML en
+    CSS.
+</p>
+
+<p>
+    In plaats van direct naar een technische oplossing te grijpen, keek ik
+    vaker naar wat de meest geschikte oplossing was.
+</p>
+
+<p>
+    Daarnaast kreeg ik meer inzicht in hoe browsers werken, hoe formulieren
+    toegankelijk gemaakt kunnen worden en waarom standaarden vaak bestaan met
+    een goede reden.
+</p>
+
+<p>
+    Hierdoor ontwikkelde ik niet alleen mijn technische vaardigheden verder,
+    maar ook mijn vermogen om vanuit de gebruiker te denken.
+</p>
+
+        </div>
+    </details>
+
+<details class="content-toggle">
+        <summary>
+            <span class="speaker">Reflectie meesterproef</span>
+            <span></span>
+        </summary>
+
+        <div class="content-toggle-content">
+<h3>Mensenkenners</h3>
+
+<p>
+    Tijdens Mensenkenners heb ik mij vooral beziggehouden met de technische
+    fundering van het platform.
+</p>
+
+<p>
+    Ik heb de bestaande Typeform omgezet naar een dynamisch systeem binnen
+    Astro, waardoor nieuwe vragen eenvoudig toegevoegd kunnen worden zonder
+    handmatig pagina's aan te maken.
+</p>
+
+<p>
+    Daarnaast heb ik gewerkt aan de backend met Supabase. Hiervoor heb ik onder
+    andere authenticatie, gebruikersvoortgang en het opslaan van cursusdata
+    ontwikkeld.
+</p>
+
+<p>
+    Gedurende het project merkte ik hoe belangrijk gebruikerstesten zijn.
+    Verschillende onderdelen die voor ons logisch leken, bleken voor gebruikers
+    minder duidelijk. Door feedback te verzamelen en te verwerken werd de cursus
+    overzichtelijker en toegankelijker.
+</p>
+
+<p>
+    Dit project heeft mij niet alleen meer ervaring gegeven met Astro,
+    databases en authenticatie, maar ook laten zien dat techniek uiteindelijk
+    in dienst staat van de gebruiker.
+</p>
+
+<h3>Belangrijkste takeaway</h3>
+
+<p>
+    Een technisch goede oplossing is pas echt succesvol wanneer gebruikers
+    zonder uitleg begrijpen hoe het werkt en hun doel kunnen bereiken.
+</p>
         </div>
     </details>
 
     <details class="content-toggle">
         <summary>
             <span class="speaker">Reflectie eind</span>
+            <span></span>
         </summary>
 
         <div class="content-toggle-content">
-            <p>
-            </p>
+<h3>Einde van de minor</h3>
 
-            <p>
-            </p>
+<p>
+    Aan het einde van de minor kijk ik anders naar webdevelopment dan aan het
+    begin.
+</p>
+
+<p>
+    Waar ik eerst vooral bezig was met het bouwen van functionaliteiten, denk
+    ik nu veel meer na over de gevolgen van ontwerp- en technische keuzes.
+</p>
+
+<p>
+    Onderwerpen zoals toegankelijkheid, duurzaamheid, digitale
+    onafhankelijkheid, performance en gebruikerservaring spelen nu een grotere
+    rol in mijn afwegingen.
+</p>
+
+<p>
+    De Weekly Nerds, de Smashing Conference en de verschillende projecten
+    hebben mij laten zien dat webdevelopment veel meer is dan alleen code
+    schrijven.
+</p>
+
+<p>
+    Ik ben kritischer geworden op het gebruik van frameworks, JavaScript en
+    externe diensten, en kijk vaker naar wat een browser van zichzelf al kan.
+</p>
+
+<p>
+    Daarnaast heb ik geleerd om eerder te testen, feedback serieuzer te nemen
+    en iteratief te werken.
+</p>
+
+<p>
+    Ik sluit de minor af met aanzienlijk meer technische kennis dan waarmee ik
+    begon, maar vooral met een bredere blik op het vakgebied en een beter
+    begrip van de mensen voor wie we uiteindelijk websites bouwen.
+</p>
         </div>
     </details>
 
